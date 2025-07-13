@@ -1,0 +1,155 @@
+import Container from "../components/Container";
+import ImageGallery from "../components/ImageGallery";
+import ProductOptionSelector from "../components/ProductOptionSelector";
+import ProductTitle from "../components/ProductTitle";
+import ProductPrice from "../components/ProductPrice";
+import CheckoutCard from "../components/CheckoutCard";
+import StoreInfoCard from "../components/StoreInfoCard";
+import PaymentMethodsCard from "../components/PaymentMethodsCard";
+import ProductFeaturesMinified from "../components/ProductFeaturesMinified";
+import ProductFeatures from "../components/ProductFeatures";
+import ProductDescription from "../components/ProductDescription";
+import useIsDesktop from "../hooks/breakpoint";
+import { useEffect, useState } from "react";
+import type { ProductDetails } from "../types/ProductDetails";
+import { productDetailsService } from "../services/productDetailsService";
+import { NotFoundPage } from "../components/NotFound";
+
+interface ProductDetailsProps {
+	productDetailsService: typeof productDetailsService;
+}
+
+export default function ProductDetails({ productDetailsService }: ProductDetailsProps) {
+	const isDesktop = useIsDesktop();
+
+	const [productDetails, setProductDetails] = useState<ProductDetails | null>(null);
+	const [isLoading, setIsLoading] = useState<boolean>(true);
+
+	useEffect(() => {
+		async function loadProductDetails() {
+			const productId = window.location.pathname.slice(1);
+			const productDetails = await productDetailsService.getById(productId);
+
+			if (productDetails !== null) setProductDetails(productDetails);
+
+			setIsLoading(false);
+		}
+
+		loadProductDetails();
+	}, []);
+
+	return (
+		<div>
+			{!isLoading && productDetails && (
+				<div className="py-12">
+					<Container>
+						{/* Mobile version */}
+						{!isDesktop && (
+							<div className="flex flex-col gap-8 p-4">
+								<ProductTitle
+									title={productDetails.title}
+									quantitySold={productDetails.quantitySold}
+									rating={productDetails.rating}
+									reviewCount={productDetails.reviewCount}
+								/>
+								<ImageGallery images={productDetails.imageUrlList} />
+								<ProductOptionSelector
+									options={productDetails.options.list}
+									title={productDetails.options.text}
+								/>
+								<ProductPrice
+									isOfferEnabled={productDetails.offer.enabled}
+									offerPrice={productDetails.offer.price}
+									price={productDetails.price}
+								/>
+								<CheckoutCard
+									isOfficialStore={productDetails.store.isOfficial}
+									quantity={productDetails.quantity}
+									storeSalesNumber={productDetails.store.salesNumber}
+									storeIconUrl={productDetails.store.iconUrl}
+									storeName={productDetails.store.name}
+								/>
+								<hr />
+								<ProductFeaturesMinified features={productDetails.features} maxItems={4} />
+								<hr />
+								<ProductFeatures features={productDetails.features} />
+								<hr />
+								<StoreInfoCard
+									iconUrl={productDetails.store.iconUrl}
+									bannerUrl={productDetails.store.bannerUrl}
+									productsNumber={productDetails.store.productsNumber}
+									isOfficial={productDetails.store.isOfficial}
+									name={productDetails.store.name}
+									salesNumber={productDetails.store.salesNumber}
+									isPositiveService={productDetails.store.isPositiveService}
+									isOnTimeDelivery={productDetails.store.isOnTimeDelivery}
+								/>
+								<hr />
+								<ProductDescription text={productDetails.description} />
+								<hr />
+								<PaymentMethodsCard />
+							</div>
+						)}
+
+						{/* Desktop version */}
+						{isDesktop && (
+							<div className="md:grid grid-cols-10">
+								<main className="col-span-7 flex flex-col p-4 gap-8">
+									<div className="flex gap-4">
+										<div className="w-1/2">
+											<ImageGallery images={productDetails.imageUrlList} />
+										</div>
+										<div className="w-1/2 flex flex-col gap-8">
+											<ProductTitle
+												title={productDetails.title}
+												quantitySold={productDetails.quantitySold}
+												rating={productDetails.rating}
+												reviewCount={productDetails.reviewCount}
+											/>
+											<ProductPrice
+												isOfferEnabled={productDetails.offer.enabled}
+												offerPrice={productDetails.offer.price}
+												price={productDetails.price}
+											/>
+											<ProductOptionSelector
+												options={productDetails.options.list}
+												title={productDetails.options.text}
+											/>
+											<ProductFeaturesMinified features={productDetails.features} maxItems={4} />
+										</div>
+									</div>
+									<hr />
+									<ProductFeatures features={productDetails.features} />
+									<hr />
+									<ProductDescription text={productDetails.description} />
+								</main>
+								<aside className="col-span-3 py-4 pr-4 flex flex-col gap-4">
+									<CheckoutCard
+										isOfficialStore={productDetails.store.isOfficial}
+										quantity={productDetails.quantity}
+										storeSalesNumber={productDetails.store.salesNumber}
+										storeIconUrl={productDetails.store.iconUrl}
+										storeName={productDetails.store.name}
+									/>
+									<StoreInfoCard
+										iconUrl={productDetails.store.iconUrl}
+										bannerUrl={productDetails.store.bannerUrl}
+										productsNumber={productDetails.store.productsNumber}
+										isOfficial={productDetails.store.isOfficial}
+										name={productDetails.store.name}
+										salesNumber={productDetails.store.salesNumber}
+										isPositiveService={productDetails.store.isPositiveService}
+										isOnTimeDelivery={productDetails.store.isOnTimeDelivery}
+									/>
+									<PaymentMethodsCard />
+								</aside>
+							</div>
+						)}
+					</Container>
+				</div>
+			)}
+
+			{!isLoading && !productDetails && <NotFoundPage />}
+		</div>
+	);
+}

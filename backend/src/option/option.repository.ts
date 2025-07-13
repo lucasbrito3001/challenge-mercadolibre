@@ -3,7 +3,7 @@ import { AppLogger } from 'src/common/logger/logger.interface';
 import { JsonRepository } from '../common/repository/json-repository';
 import { Database, ProductOption, ProductOptionValue } from 'src/db/type';
 
-interface GetAllByProductIdOutput extends ProductOption {
+export interface GetAllByProductIdOutput extends ProductOption {
     optionValues: ProductOptionValue[];
 }
 

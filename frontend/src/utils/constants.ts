@@ -1,95 +1,113 @@
 import type { ProductDetails } from "../types/ProductDetails";
 
 export const mockProductDetails: ProductDetails = {
-	quantity: 42,
-	title: "Samsung Galaxy A55 5G Dual SIM 256 GB Azul escuro 8 GB RAM",
-	description:
-		"O Galaxy A55 5G é o celular ideal para aqueles que gostam de criar e compartilhar conteúdos, inspirando outras pessoas através de suas histórias.\n\nSeu design premium em metal e vidro com resistência a água e a poeira (IP67) traz estilo e proteção para o seu dia a dia. E você tem 3 opções de cores para escolher a que mais combina com você: Azul Escuro, Azul Claro e Rosa.\n\nA sua Câmera Tripla de até 50MP e Selfie de 32MP garantem diversas possibilidades para que as suas fotos fiquem de outro nível. O modo retrato noturno do Galaxy A55 5G permite capturar o melhor de si, todas as noites. Já seus vídeos ficarão super-estáveis, mesmo gravados em movimento, e com mais detalhes e clareza, graças ao HDR, que captura um amplo espectro de luz e sombra. Com Nightography, você não precisa se preocupar em tirar fotos em ambientes com pouca luz, pois ele garante brilho nessas situações. E você ainda pode utilizar o Apagador de Objetos caso queira remover elementos indesejados em suas fotos.\n\nA tela Super AMOLED FHD+ de 6.6” é brilhante e colorida, garantindo uma visualização imersiva nos conteúdos. E para mais fluidez, esse celular tem uma taxa de atualização de até 120Hz. Assim, você assiste a sua série preferida, acompanha as redes sociais e consome mídia da melhor forma, mesmo sob a luz do sol, pois o Vision Booster preserva os detalhes e aumenta a sua qualidade de visualização. A tela Infinity-O Display permite mais espaço para visualização e um aspecto premium ao celular.\n\nO Galaxy A55 5G te acompanha em todos os momentos com a sua bateria de 5.000 mAh que dura até 2 dias e um Carregamento super-rápido de até 25W, para que você não precise passar muito tempo ao lado da tomada. E para os gamers, experimente uma velocidade e desempenho absurdos, com processador Exynos 1480 com armazenamento de até 256GB e memória RAM de até 8GB.\n\nPara uma experiência duradoura e segura com o seu aparelho, O Galaxy A55 5G assegura até 4 atualizações de sistema operacional Android e até 5 anos de atualizações de Segurança. Fora isso, a sua proteção é aprimorada com Samsung Knox, garantindo que dados confidenciais e sigilosos permaneçam seguros, e com Cadeado Galaxy, protegendo os seus dados e acessos a aplicativos por terceiros.\n\nCom o aplicativo Smart Switch você transfere de forma fácil e prática o conteúdo do seu celular anterior (fotos, contatos, eventos do calendário, notas, configurações do dispositivo e muito mais) para o novo Galaxy A55 5G.",
-	rating: 3.76,
-	reviewCount: 769,
-	quantitySold: 10222,
-	imageUrlList: [
-		"https://http2.mlstatic.com/D_NQ_NP_973285-MLA81365234553_122024-O.webp",
-		"https://http2.mlstatic.com/D_NQ_NP_2X_627117-MLA81365484947_122024-F.webp",
-		"https://http2.mlstatic.com/D_NQ_NP_2X_953172-MLA81365446813_122024-F.webp",
-		"https://http2.mlstatic.com/D_NQ_NP_2X_950529-MLA81367015155_122024-F.webp",
-		"https://http2.mlstatic.com/D_NQ_NP_929628-MLA81366753953_122024-O.webp",
-		"https://http2.mlstatic.com/D_NQ_NP_2X_936470-MLA81099163506_122024-F.webp",
-		"https://http2.mlstatic.com/D_NQ_NP_844983-MLA81366753961_122024-O.webp",
-	],
-	price: 299900,
-	offer: {
-		enabled: true,
-		price: 227900,
-	},
+	description: "Poderoso e elegante, com câmera tripla.",
+	price: 2299.99,
+	quantity: 12,
+	quantitySold: 3000,
+	rating: 4.8,
+	reviewCount: 512,
+	title: "Smartphone X100",
+	imageUrlList: ["https://example.com/products/x100/blue.png"],
+	offer: null,
 	store: {
-		salesNumber: 12444,
-		productsNumber: 100,
+		salesNumber: 10000,
+		productsNumber: 120,
 		isOfficial: true,
-		iconUrl: "https://http2.mlstatic.com/D_NQ_NP_998532-MLA74841001840_032024-G.jpg",
-		name: "Samsung",
+		iconUrl: "https://example.com/store1/icon.png",
+		name: "TechZone",
 		isPositiveService: true,
 		isOnTimeDelivery: true,
-		bannerUrl: "https://http2.mlstatic.com/D_NQ_NP_880338-MLA74840874324_032024-OO.jpg",
+		bannerUrl: "https://example.com/store1/banner.png",
 	},
-	options: {
-		text: "Color",
-		list: [
-			{
-				value: "Azul cielo",
-				key: "samsung-galaxy-a55-5g-azul-cielo-256-gb-8-gb",
-				imageUrl: "https://http2.mlstatic.com/D_Q_NP_726160-MLA75549316245_042024-R.webp",
-			},
-			{
-				value: "Azul oscuro",
-				key: "samsung-galaxy-a55-5g-azul-oscuro-256-gb-8-gb",
-				imageUrl: "https://http2.mlstatic.com/D_Q_NP_777643-MLA75395342152_042024-R.webp",
-			},
-			{
-				value: "Lila",
-				key: "samsung-galaxy-a55-5g-lila-256-gb-8-gb",
-				imageUrl: "https://http2.mlstatic.com/D_Q_NP_828657-MLA75395342112_042024-R.webp",
-			},
-		],
-	},
+	options: [
+		{
+			value: "Cor",
+			id: 1,
+			optionValues: [
+				{
+					value: "Azul cielo",
+					imageUrl:
+						"https://http2.mlstatic.com/D_Q_NP_726160-MLA75549316245_042024-R.webp",
+					id: 1,
+				},
+				{
+					value: "Azul oscuro",
+					imageUrl:
+						"https://http2.mlstatic.com/D_Q_NP_777643-MLA75395342152_042024-R.webp",
+					id: 2,
+				},
+			],
+		},
+		{
+			value: "Armazenamento",
+			id: 2,
+			optionValues: [
+				{
+					value: "64GB",
+					imageUrl: null,
+					id: 3,
+				},
+				{
+					value: "128GB",
+					imageUrl: null,
+					id: 4,
+				},
+			],
+		},
+	],
 	features: [
 		{
-			key: "Memoria RAM",
-			value: "8 GB",
-			iconUrl:
-				"https://http2.mlstatic.com/storage/catalog-technical-specs/images/assets/vectorial/internal_memory.svg",
-		},
-		{
-			key: "Memoria interna",
-			value: "256 GB",
+			key: "Tela",
+			value: "6.5'' AMOLED",
 			iconUrl: null,
 		},
 		{
-			key: null,
-			value: "Dispositivo desbloqueado para que elijas tu compañia telefónica preferida.",
+			key: "Processador",
+			value: "Octa-core 2.4GHz",
 			iconUrl: null,
 		},
+	],
+	variantOptions: [
 		{
-			key: "Tamaño de la pantalla",
-			value: '6.6"',
-			iconUrl: null,
+			optionId: 1,
+			optionValueId: 2,
 		},
 		{
-			key: "Camera frontal principal",
-			value: "32 Mpx",
-			iconUrl: null,
+			optionId: 2,
+			optionValueId: 4,
+		},
+	],
+	variants: [
+		{
+			id: 1,
+			slug: "smartphone-x100-preto-64gb",
+			stock: 25,
+			optionValues: [
+				{
+					optionId: 1,
+					optionValueId: 1,
+				},
+				{
+					optionId: 2,
+					optionValueId: 3,
+				},
+			],
 		},
 		{
-			key: "Camera traseira principal",
-			value: "50 Mpx",
-			iconUrl:
-				"https://http2.mlstatic.com/storage/catalog-technical-specs/images/assets/vectorial/resolution_rear_camera.svg",
-		},
-		{
-			key: "Desbloqueo",
-			value: "Huella dactilar",
-			iconUrl:
-				"https://http2.mlstatic.com/storage/catalog-technical-specs/images/assets/vectorial/fingerprint.svg",
+			id: 2,
+			slug: "smartphone-x100-azul-128gb",
+			stock: 12,
+			optionValues: [
+				{
+					optionId: 1,
+					optionValueId: 2,
+				},
+				{
+					optionId: 2,
+					optionValueId: 4,
+				},
+			],
 		},
 	],
 };

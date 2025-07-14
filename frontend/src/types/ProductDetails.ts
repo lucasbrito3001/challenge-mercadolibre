@@ -22,7 +22,7 @@ export interface ProductFeature {
 
 export interface ProductOptionValue {
 	value: string;
-	imageUrl: string;
+	imageUrl: string | null;
 	id: number;
 }
 

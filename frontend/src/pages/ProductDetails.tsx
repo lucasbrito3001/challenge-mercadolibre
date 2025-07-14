@@ -98,8 +98,6 @@ export default function ProductDetails({ productDetailsService }: ProductDetails
 									onChange={changeProductVariant}
 									currentOptions={productDetails.variantOptions}
 									options={productDetails.options}
-									pathPrefix={productDetails.title}
-									variants={productDetails.variants}
 								/>
 								<ProductPrice
 									isOfferEnabled={!!productDetails.offer}
@@ -161,9 +159,7 @@ export default function ProductDetails({ productDetailsService }: ProductDetails
 											<ProductOptionSelector
 												onChange={changeProductVariant}
 												currentOptions={productDetails.variantOptions}
-												pathPrefix={productDetails.title}
 												options={productDetails.options}
-												variants={productDetails.variants}
 											/>
 											<ProductFeaturesMinified
 												features={productDetails.features}

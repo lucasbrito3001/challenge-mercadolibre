@@ -7,16 +7,13 @@ import type {
 
 interface ProductOptionSelectorProps {
 	options: ProductOption[];
-	pathPrefix: string;
 	currentOptions: VariantOptionDto[];
-	variants: Variant[];
 	onChange(optionId: number, optionValueId: number): void;
 }
 
 export default function ProductOptionSelector({
 	options,
 	currentOptions,
-	variants,
 	onChange,
 }: ProductOptionSelectorProps) {
 	const getCurrentOptionValueName = (
@@ -30,23 +27,6 @@ export default function ProductOptionSelector({
 		return optionValues.find((optionValue) => optionValue.id === optionValueId)?.value;
 	};
 
-	const onSelectVariant = (optionId: number, optionValueId: number) => {
-		const newOptions = currentOptions.map(
-			(currOpt): VariantOptionDto =>
-				currOpt.optionId === optionId ? { optionId, optionValueId } : currOpt
-		);
-
-		const slug = variants.find((variant) =>
-			variant.optionValues.every((optionValue) =>
-				newOptions.some(
-					(newOpt) =>
-						newOpt.optionId === optionValue.optionId &&
-						newOpt.optionValueId === optionValue.optionValueId
-				)
-			)
-		)?.slug;
-	};
-
 	const renderOptions = () => {
 		return options.map((option) => {
 			const currentOptionValueName = getCurrentOptionValueName(
@@ -57,7 +37,8 @@ export default function ProductOptionSelector({
 			return (
 				<div key={option.value}>
 					<div className="text-sm font-medium text-gray-700 mb-2">
-						{option.value}: <b>{currentOptionValueName}</b>
+						{option.value}:{" "}
+						<b data-testid="option-value-selected">{currentOptionValueName}</b>
 					</div>
 					<div className="flex flex-wrap gap-4">
 						{option.optionValues.map((optionValue) => (
@@ -74,7 +55,7 @@ export default function ProductOptionSelector({
 									<img
 										src={optionValue.imageUrl}
 										alt={optionValue.value}
-										className="w-16 h-16 object-cover rounded-md"
+										className="w-16 h-16 object-contain rounded-md p-2"
 									/>
 								) : (
 									<span className="py-1 px-2">{optionValue.value}</span>

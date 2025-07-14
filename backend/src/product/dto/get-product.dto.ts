@@ -37,7 +37,7 @@ export interface VariantOptionOutputDto {
     optionValueId: number;
 }
 
-export interface VariantOutput {
+export interface VariantOutputDto {
     id: number;
     slug: string;
     stock: number;
@@ -60,5 +60,5 @@ export interface ProductOutputDto {
     options: OptionsOutputDto[];
     features: FeatureOutputDto[];
     variantOptions: VariantOptionOutputDto[];
-    variants: VariantOutput[];
+    variants: VariantOutputDto[];
 }

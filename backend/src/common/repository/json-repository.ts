@@ -13,7 +13,7 @@ export class JsonRepository {
         try {
             this.logger.log(`Reading the datasource file`, JsonRepository.name);
             const rawData = await readFile(
-                path.join(__dirname, '..', '.', 'db', 'datasource.json'),
+                path.join(__dirname, '..', '..', 'db', 'datasource.json'),
                 'utf-8',
             );
             datasource = JSON.parse(rawData);

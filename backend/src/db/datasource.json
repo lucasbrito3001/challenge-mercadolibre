@@ -60,7 +60,7 @@
         {
             "id": 1,
             "storeId": 1,
-            "name": "iPhone 14",
+            "name": "Apple iPhone 14 Plus",
             "description": "Poderoso e elegante, com câmera tripla.",
             "rating": 4.8,
             "reviewCount": 512,
@@ -134,13 +134,13 @@
         {
             "id": 1,
             "optionId": 1,
-            "value": "Azul cielo",
+            "value": "Negro",
             "imageUrl": "https://m.media-amazon.com/images/I/61cwywLZR-L._AC_SX679_.jpg"
         },
         {
             "id": 2,
             "optionId": 1,
-            "value": "Azul oscuro",
+            "value": "Azul",
             "imageUrl": "https://m.media-amazon.com/images/I/61cwywLZR-L._AC_SX679_.jpg"
         },
         {
@@ -166,23 +166,23 @@
         {
             "id": 7,
             "optionId": 5,
-            "value": "Preto"
+            "value": "Negro"
         }
     ],
     "product_variant": [
         {
             "id": 1,
             "productId": 1,
-            "sku": "X100-BLK-64",
-            "slug": "iphone-14-preto-64gb",
+            "sku": "IPH14PLS-BLK-64",
+            "slug": "apple-iphone-14-plus-negro-64gb",
             "price": 199999,
             "stock": 25
         },
         {
             "id": 2,
             "productId": 1,
-            "sku": "X100-BLU-128",
-            "slug": "iphone-14-azul-128gb",
+            "sku": "IPH14PLS-BLU-128",
+            "slug": "apple-iphone-14-plus-azul-128gb",
             "price": 229999,
             "stock": 12
         },
@@ -213,8 +213,8 @@
         {
             "id": 6,
             "productId": 1,
-            "sku": "X100-BLK-128",
-            "slug": "iphone-14-preto-128gb",
+            "sku": "IPH14PLS-BLK-128",
+            "slug": "apple-iphone-14-plus-negro-128gb",
             "price": 199999,
             "stock": 25
         }
@@ -270,7 +270,17 @@
         {
             "id": 1,
             "variantId": 2,
-            "url": "https://m.media-amazon.com/images/I/61cwywLZR-L._AC_SX679_.jpg"
+            "url": "https://m.media-amazon.com/images/I/41+jLq6yJKL._AC_SL1000_.jpg"
+        },
+        {
+            "id": 1,
+            "variantId": 2,
+            "url": "https://m.media-amazon.com/images/I/31jrTen3vUL._AC_SL1000_.jpg"
+        },
+        {
+            "id": 1,
+            "variantId": 2,
+            "url": "https://m.media-amazon.com/images/I/51k8c06WvdL._AC_SL1000_.jpg"
         },
         {
             "id": 2,

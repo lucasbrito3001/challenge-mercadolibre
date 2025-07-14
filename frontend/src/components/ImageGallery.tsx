@@ -11,7 +11,6 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
 	const isDesktop = useIsDesktop();
 
 	const goTo = (idx: number) => {
-		console.log(idx);
 		if (idx >= 0 && idx < images.length) {
 			setSelectedIndex(idx);
 		}

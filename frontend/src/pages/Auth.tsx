@@ -16,8 +16,8 @@ export default function Auth() {
 	return (
 		<div className="flex items-center justify-center h-[92vh] bg-white text-center p-6">
 			<div>
-				<h1 className="text-3xl font-semibold text-gray-800 mb-4">Você está autenticado</h1>
-				<p className="text-gray-600 mb-2">Busque algo</p>
+				<h1 className="text-3xl font-semibold text-gray-800 mb-4">Estás autenticado</h1>
+				<p className="text-gray-600 mb-2">Buscar algo</p>
 				<div className="max-w-xl mx-auto mt-10">
 					<form
 						className="flex rounded-full border border-gray-300 overflow-hidden shadow-sm focus-within:ring-2 focus-within:ring-yellow-400"
@@ -26,7 +26,7 @@ export default function Auth() {
 						<div className="relative flex-grow">
 							<input
 								type="text"
-								placeholder="Buscar produtos, marcas e mais..."
+								placeholder="Buscar productos"
 								className="w-full pl-12 pr-4 py-3 focus:outline-none"
 							/>
 

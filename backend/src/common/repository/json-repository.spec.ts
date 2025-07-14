@@ -20,7 +20,8 @@ describe('JsonRepository', () => {
     let repository: JsonRepository;
     let mockLogger: AppLogger;
     let readFileMock: jest.Mock;
-    let pathJoinMock: jest.Mock;
+
+    const dbPath = '/var/lib/backend_meli/datasource.json';
 
     beforeEach(() => {
         mockLogger = {
@@ -32,7 +33,6 @@ describe('JsonRepository', () => {
         repository = new JsonRepository(mockLogger);
 
         readFileMock = fs.readFile as jest.Mock;
-        pathJoinMock = path.join as jest.Mock;
 
         jest.clearAllMocks();
     });
@@ -41,24 +41,18 @@ describe('JsonRepository', () => {
         expect(repository).toBeDefined();
     });
 
+    it(`should call readFile with ${dbPath}`, async () => {
+        readFileMock.mockResolvedValueOnce(JSON.stringify(mockDatabase));
+
+        await repository.getDatasource();
+
+        expect(readFileMock).toHaveBeenCalledWith(dbPath, 'utf-8');
+    });
+
     it('should successfully read and parse the datasource file', async () => {
-        const expectedDbPath = '/mock/path/to/datasource.json';
-
-        pathJoinMock.mockReturnValue(expectedDbPath);
-
         readFileMock.mockResolvedValueOnce(JSON.stringify(mockDatabase));
 
         const result = await repository.getDatasource();
-
-        expect(pathJoinMock).toHaveBeenCalledWith(
-            expect.any(String),
-            '..',
-            '..',
-            'db',
-            'datasource.json',
-        );
-
-        expect(readFileMock).toHaveBeenCalledWith(expectedDbPath, 'utf-8');
 
         expect(mockLogger.log).toHaveBeenCalledWith(
             'Reading the datasource file',
@@ -70,9 +64,6 @@ describe('JsonRepository', () => {
 
     it('should throw InternalServerErrorException if the datasource file cannot be read', async () => {
         const errorMessage = 'Permission denied';
-        const expectedDbPath = '/mock/path/to/datasource.json';
-
-        pathJoinMock.mockReturnValue(expectedDbPath);
 
         readFileMock.mockRejectedValueOnce(new Error(errorMessage));
 
@@ -86,23 +77,10 @@ describe('JsonRepository', () => {
             expect.any(String),
             JsonRepository.name,
         );
-
-        expect(pathJoinMock).toHaveBeenCalledWith(
-            expect.any(String),
-            '..',
-            '..',
-            'db',
-            'datasource.json',
-        );
-
-        expect(readFileMock).toHaveBeenCalledWith(expectedDbPath, 'utf-8');
     });
 
     it('should throw InternalServerErrorException if the datasource file is malformed JSON', async () => {
         const malformedJson = '{"key": "value", "anotherKey": }';
-        const expectedDbPath = '/mock/path/to/datasource.json';
-
-        pathJoinMock.mockReturnValue(expectedDbPath);
 
         readFileMock.mockResolvedValueOnce(malformedJson);
 
@@ -116,15 +94,5 @@ describe('JsonRepository', () => {
             expect.any(String),
             JsonRepository.name,
         );
-
-        expect(pathJoinMock).toHaveBeenCalledWith(
-            expect.any(String),
-            '..',
-            '..',
-            'db',
-            'datasource.json',
-        );
-
-        expect(readFileMock).toHaveBeenCalledWith(expectedDbPath, 'utf-8');
     });
 });

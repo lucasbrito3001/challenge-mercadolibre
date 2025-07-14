@@ -200,8 +200,6 @@ export default function ProductDetails({ productDetailsService }: ProductDetails
 					</Container>
 				</div>
 			)}
-
-			{!isLoading && !productDetails && <NotFoundPage />}
 		</div>
 	);
 }

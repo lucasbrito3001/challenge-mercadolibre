@@ -1,0 +1,80 @@
+server:
+    http_listen_port: 9080
+    grpc_listen_port: 0
+
+positions:
+    filename: /tmp/positions.yaml
+
+clients:
+    - url: http://loki:3100/loki/api/v1/push
+
+scrape_configs:
+    - job_name: docker
+      docker_sd_configs:
+          - host: unix:///var/run/docker.sock
+            refresh_interval: 5s
+
+      relabel_configs:
+        - source_labels: [__meta_docker_container_name]
+          regex: /(.+)
+          target_label: app
+
+        - source_labels: [__meta_docker_container_name]
+          regex: /(.+)
+          target_label: container
+
+        - source_labels: [__meta_docker_container_log_path]
+          target_label: __path__
+      pipeline_stages:
+          - docker: {}
+          - json:
+              expressions:
+                level: level
+
+          - match:
+              selector: '{level="10"}'
+              stages:
+                - replace:
+                    expression: trace
+                    source: level
+
+          - match:
+              selector: '{level="20"}'
+              stages:
+                - replace:
+                    expression: debug
+                    source: level
+
+          - match:
+              selector: '{level="30"}'
+              stages:
+                - replace:
+                    expression: info
+                    source: level
+
+          - match:
+              selector: '{level="40"}'
+              stages:
+                - replace:
+                    expression: warn
+                    source: level
+
+          - match:
+              selector: '{level="50"}'
+              stages:
+                - replace:
+                    expression: error
+                    source: level
+
+          - match:
+              selector: '{level="60"}'
+              stages:
+                - replace:
+                    expression: fatal
+                    source: level
+                    
+          - labels:
+              container: container_name
+              image: image
+              service: COMPOSE_SERVICE
+              level: level

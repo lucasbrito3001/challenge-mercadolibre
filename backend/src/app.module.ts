@@ -1,17 +1,21 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { ProductModule } from './product/product.module';
-import { NestLoggerService } from './common/logger/nest-logger.service';
+import { PinoLoggerService } from './common/logger/pino-logger.service';
 import { CommonModule } from './common/common.module';
 import { ProductVariantModule } from './product-variant/product-variant.module';
 
 @Module({
-    imports: [ProductModule, ProductVariantModule, CommonModule],
+    imports: [
+        CommonModule,
+        ProductModule,
+        ProductVariantModule,
+    ],
     controllers: [AppController],
     providers: [
         {
             provide: 'LoggerService',
-            useClass: NestLoggerService,
+            useClass: PinoLoggerService,
         },
     ],
     exports: ['LoggerService'],

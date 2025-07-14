@@ -14,12 +14,14 @@ import { useEffect, useState } from "react";
 import type { ProductDetails, VariantOptionDto } from "../types/ProductDetails";
 import { productDetailsService } from "../services/productDetailsService";
 import { NotFoundPage } from "../components/NotFound";
+import { useNavigate } from "react-router-dom";
 
 interface ProductDetailsProps {
 	productDetailsService: typeof productDetailsService;
 }
 
 export default function ProductDetails({ productDetailsService }: ProductDetailsProps) {
+	const navigate = useNavigate();
 	const isDesktop = useIsDesktop();
 	const productSlug = window.location.pathname.slice(1);
 
@@ -30,8 +32,9 @@ export default function ProductDetails({ productDetailsService }: ProductDetails
 		async function loadProductDetails() {
 			const productDetails = await productDetailsService.getById(productSlug);
 
-			if (productDetails !== null) setProductDetails(productDetails);
+			if (productDetails === null) navigate("not-found");
 
+			setProductDetails(productDetails);
 			setIsLoading(false);
 		}
 

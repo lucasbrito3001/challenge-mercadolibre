@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { ProductRepository } from './product.repository';
 import { ProductVariantRepository } from 'src/product-variant/product-variant.repository';
-import { ProductOutputDto, VariantsOutputDto } from './dto/get-product.dto';
+import { FeatureOutputDto, OptionsOutputDto, ProductOutputDto, VariantOptionOutputDto, VariantOutputDto } from './dto/get-product.dto';
 import { OfferRepository } from 'src/offer/offer.repository';
 import { OptionRepository } from 'src/option/option.repository';
 import { StoreRepository } from 'src/store/store.repository';
@@ -20,18 +20,50 @@ export class ProductService {
 
     async findBySlug(slug: string): Promise<ProductOutputDto> {
         const variant = await this.variantRepository.getBySlug(slug);
-        const images = await this.variantRepository.getImages(variant.id);
-        const product = await this.productRepository.getById(variant.productId);
-        const store = await this.storeRepository.getById(product.storeId);
-        const offer = await this.offerRepository.getActiveOfferBySlug(
-            variant.id,
-        );
-        const options = await this.optionRepository.getAllByProductId(
-            product.id,
-        );
-        const features = await this.featureRepository.getAllByProductId(
-            product.id,
-        );
+
+        const [product, images, offer, variantOptions] = await Promise.all([
+            await this.productRepository.getById(variant.productId),
+            await this.variantRepository.getImages(variant.id),
+            await this.offerRepository.getActiveOfferBySlug(variant.id),
+            await this.variantRepository.getOptionValues(variant.id),
+        ])
+
+        const [store, options, features, variants] = await Promise.all([
+            await this.storeRepository.getById(product.storeId),
+            await this.optionRepository.getAllByProductId(product.id),
+            await this.featureRepository.getAllByProductId(product.id),
+            await this.variantRepository.getVariantsWithOptionsByProductId(product.id),
+        ])
+
+        const imageUrlList: string[] = images.map((image) => image.url)
+        const optionsOutput: OptionsOutputDto[] = options.map((option) => ({
+            value: option.value,
+            id: option.id,
+            optionValues: option.optionValues.map((optionValue) => ({
+                value: optionValue.value,
+                imageUrl: optionValue.imageUrl,
+                id: optionValue.id,
+                optionId: optionValue.optionId,
+            })),
+        }))
+        const featuresOutput: FeatureOutputDto[] = features.map((feature) => ({
+            key: feature.key,
+            value: feature.value,
+            iconUrl: feature.iconUrl,
+        }))
+        const variantOptionsOutput: VariantOptionOutputDto[] = variantOptions.map((variantOption) => ({
+            optionId: variantOption.optionId,
+            optionValueId: variantOption.optionValueId,
+        }))
+        const variantsOutput: VariantOutputDto[] = variants.map((variant) => ({
+            id: variant.id,
+            slug: variant.slug,
+            stock: variant.stock,
+            optionValues: variant.optionValues.map((optionValue) => ({
+                optionId: optionValue.optionId,
+                optionValueId: optionValue.optionValueId,
+            })),
+        }))
 
         return {
             description: product.description,
@@ -43,8 +75,12 @@ export class ProductService {
             sku: variant.sku,
             slug: variant.slug,
             title: product.name,
-            imageUrlList: images.map((image) => image.url),
+            imageUrlList: imageUrlList,
             offer: offer ? { price: offer.offerPrice } : null,
+            options: optionsOutput,
+            features: featuresOutput,
+            variantOptions: variantOptionsOutput,
+            variants: variantsOutput,
             store: {
                 salesNumber: store.salesNumber,
                 productsNumber: store.productsNumber,
@@ -55,12 +91,6 @@ export class ProductService {
                 isOnTimeDelivery: store.isOnTimeDelivery,
                 bannerUrl: store.bannerUrl,
             },
-            options: options,
-            features: features.map((feature) => ({
-                key: feature.key,
-                value: feature.value,
-                iconUrl: feature.iconUrl,
-            })),
         };
     }
 }

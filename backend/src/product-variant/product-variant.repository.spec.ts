@@ -169,4 +169,232 @@ describe('ProductVariantRepository', () => {
             expect(logger.log).not.toHaveBeenCalled();
         });
     });
+
+    describe('getOptionValues', () => {
+        const existingVariantId =
+            mockDatabase.product_variant_option_value[0].variantId;
+        const nonExistingVariantId = 999;
+
+        it('should return option values when variantId is found', async () => {
+            (repository.getDatasource as jest.Mock).mockResolvedValue(
+                mockDatabase as Database,
+            );
+
+            const expectedOptionValues =
+                mockDatabase.product_variant_option_value.filter(
+                    (pvov) => pvov.variantId === existingVariantId,
+                );
+
+            const result = await repository.getOptionValues(existingVariantId);
+
+            expect(result).toEqual(expectedOptionValues);
+            expect(repository.getDatasource).toHaveBeenCalledTimes(1);
+            expect(logger.log).toHaveBeenCalledTimes(1);
+            expect(logger.log).toHaveBeenCalledWith(
+                `Variant option values found: ${expectedOptionValues.length}`,
+                ProductVariantRepository.name,
+            );
+            expect(logger.warn).not.toHaveBeenCalled();
+        });
+
+        it('should throw NotFoundException when variantId is not found', async () => {
+            (repository.getDatasource as jest.Mock).mockResolvedValue(
+                mockDatabase as Database,
+            );
+
+            const rejection = await expect(
+                repository.getOptionValues(nonExistingVariantId),
+            ).rejects;
+
+            await rejection.toThrow(NotFoundException);
+            await rejection.toThrow('Variant option values not found');
+
+            expect(repository.getDatasource).toHaveBeenCalledTimes(1);
+            expect(logger.warn).toHaveBeenCalledTimes(1);
+            expect(logger.warn).toHaveBeenCalledWith(
+                `Variant option values with variantId "${nonExistingVariantId}" not found`,
+                ProductVariantRepository.name,
+            );
+            expect(logger.log).not.toHaveBeenCalled();
+        });
+
+        it('should handle errors from getDatasource', async () => {
+            const errorMessage = 'Failed to load datasource';
+            (repository.getDatasource as jest.Mock).mockRejectedValue(
+                new Error(errorMessage),
+            );
+
+            await expect(
+                repository.getOptionValues(existingVariantId),
+            ).rejects.toThrow(errorMessage);
+
+            expect(repository.getDatasource).toHaveBeenCalledTimes(1);
+            expect(logger.warn).not.toHaveBeenCalled();
+            expect(logger.log).not.toHaveBeenCalled();
+        });
+    });
+
+    describe('findByOptions', () => {
+        const variant1 = mockDatabase.product_variant[0];
+
+        const variant1Options: { optionId: number; optionValueId: number }[] = [
+            { optionId: 1, optionValueId: 1 },
+            { optionId: 2, optionValueId: 3 },
+        ];
+
+        it('should return the correct variant when options match exactly', async () => {
+            (repository.getDatasource as jest.Mock).mockResolvedValue(
+                mockDatabase as Database,
+            );
+
+            const result = await repository.findByOptions(variant1Options);
+
+            expect(result).toEqual(variant1);
+            expect(repository.getDatasource).toHaveBeenCalledTimes(1);
+            expect(logger.log).toHaveBeenCalledTimes(1);
+            expect(logger.log).toHaveBeenCalledWith(
+                `Variant found by options: ${variant1.sku}`,
+                ProductVariantRepository.name,
+            );
+            expect(logger.warn).not.toHaveBeenCalled();
+        });
+
+        it('should return the correct variant when options are provided in a different order', async () => {
+            (repository.getDatasource as jest.Mock).mockResolvedValue(
+                mockDatabase as Database,
+            );
+
+            const reorderedOptions = [
+                { optionId: 2, optionValueId: 3 },
+                { optionId: 1, optionValueId: 1 },
+            ];
+
+            const result = await repository.findByOptions(reorderedOptions);
+
+            expect(result).toEqual(variant1);
+            expect(logger.log).toHaveBeenCalledTimes(1);
+            expect(logger.warn).not.toHaveBeenCalled();
+        });
+
+        it('should throw NotFoundException if no variant matches the provided options', async () => {
+            (repository.getDatasource as jest.Mock).mockResolvedValue(
+                mockDatabase as Database,
+            );
+
+            const nonMatchingOptions = [
+                { optionId: 1, optionValueId: 999 },
+                { optionId: 2, optionValueId: 3 },
+            ];
+
+            const rejection = await expect(
+                repository.findByOptions(nonMatchingOptions),
+            ).rejects;
+
+            rejection.toThrow(NotFoundException);
+            rejection.toThrow('Variant not found for provided options');
+
+            expect(repository.getDatasource).toHaveBeenCalledTimes(1);
+            expect(logger.warn).toHaveBeenCalledWith(
+                `No variant matches options: ${JSON.stringify(nonMatchingOptions)}`,
+                ProductVariantRepository.name,
+            );
+        });
+
+        it('should throw NotFoundException if a variant has more options than the input (partial match, but not exact)', async () => {
+            (repository.getDatasource as jest.Mock).mockResolvedValue(
+                mockDatabase as Database,
+            );
+
+            const partialOptions = [{ optionId: 1, optionValueId: 1 }];
+
+            const rejection = await expect(
+                repository.findByOptions(partialOptions),
+            ).rejects;
+
+            rejection.toThrow(NotFoundException);
+            rejection.toThrow('Variant not found for provided options');
+            expect(logger.warn).toHaveBeenCalledWith(
+                `No variant matches options: ${JSON.stringify(partialOptions)}`,
+                ProductVariantRepository.name,
+            );
+            expect(logger.log).not.toHaveBeenCalled();
+        });
+
+        it('should throw NotFoundException if a variant has fewer options than the input', async () => {
+            (repository.getDatasource as jest.Mock).mockResolvedValue(
+                mockDatabase as Database,
+            );
+
+            const excessOptions = [
+                { optionId: 3, optionValueId: 5 },
+                { optionId: 99, optionValueId: 99 },
+            ];
+
+            const rejection = await expect(
+                repository.findByOptions(excessOptions),
+            ).rejects;
+
+            rejection.toThrow(NotFoundException);
+            rejection.toThrow('Variant not found for provided options');
+
+            expect(logger.warn).toHaveBeenCalledWith(
+                `No variant matches options: ${JSON.stringify(excessOptions)}`,
+                ProductVariantRepository.name,
+            );
+            expect(logger.log).not.toHaveBeenCalled();
+        });
+
+        it('should handle errors from getDatasource', async () => {
+            const errorMessage = 'Failed to load datasource';
+            (repository.getDatasource as jest.Mock).mockRejectedValue(
+                new Error(errorMessage),
+            );
+
+            await expect(
+                repository.findByOptions(variant1Options),
+            ).rejects.toThrow(errorMessage);
+
+            expect(repository.getDatasource).toHaveBeenCalledTimes(1);
+            expect(logger.warn).not.toHaveBeenCalled();
+            expect(logger.log).not.toHaveBeenCalled();
+        });
+    });
+
+    describe('getVariantsWithOptionsByProductId', () => {
+        it('should return variants with their option values by productId', async () => {
+            (repository.getDatasource as jest.Mock).mockResolvedValue(
+                mockDatabase as Database,
+            );
+
+            const productId = mockDatabase.product[0].id;
+            const variant = mockDatabase.product_variant.find(
+                (variant) => variant.productId === mockDatabase.product[0].id,
+            );
+
+            const result =
+                await repository.getVariantsWithOptionsByProductId(productId);
+
+            expect(result).toHaveLength(2);
+            expect(result[0].sku).toBe(variant?.sku);
+            expect(result[0].optionValues).toEqual([
+                { variantId: 1, optionId: 1, optionValueId: 1 },
+                { variantId: 1, optionId: 2, optionValueId: 3 },
+            ]);
+            expect(logger.log).toHaveBeenCalledWith(
+                'Found 2 variants with options for productId "1"',
+                'ProductVariantRepository',
+            );
+        });
+
+        it('should return empty array and log warning if no variants found', async () => {
+            jest.spyOn(repository as any, 'getDatasource').mockResolvedValue({
+                ...mockDatabase,
+                product_variant: [],
+            });
+
+            await expect(
+                repository.getVariantsWithOptionsByProductId(999),
+            ).rejects.toThrow(NotFoundException);
+        });
+    });
 });

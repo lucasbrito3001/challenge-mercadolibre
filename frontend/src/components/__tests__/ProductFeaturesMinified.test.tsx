@@ -22,6 +22,13 @@ describe("ProductFeaturesMinified Component", () => {
 		expect(listItems.length).toBe(3);
 	});
 
+	it("renders the lower number of features specified", () => {
+		const featuresWithTwoItems = features.slice(0, 2);
+		render(<ProductFeaturesMinified features={featuresWithTwoItems} maxItems={3} />);
+		const listItems = screen.getAllByRole("listitem");
+		expect(listItems.length).toBe(2);
+	});
+
 	it("displays features with and without keys properly", () => {
 		render(<ProductFeaturesMinified features={features} maxItems={5} />);
 		expect(screen.getByText("Brand: Samsung")).toBeInTheDocument();

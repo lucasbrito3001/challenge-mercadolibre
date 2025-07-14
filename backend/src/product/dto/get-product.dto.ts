@@ -13,21 +13,35 @@ export interface StoreOutputDto {
     bannerUrl: string;
 }
 
-export interface VariantOutputOption {
-    key: string;
+export interface OptoinValueOutputDto {
+    id: number;
     value: string;
-    imageUrl: string;
+    imageUrl: string | null;
+    optionId: number;
 }
 
-export interface VariantsOutputDto {
-    text: string;
-    list: VariantOutputOption[];
+export interface OptionsOutputDto {
+    value: string;
+    id: number;
+    optionValues: OptoinValueOutputDto[];
 }
 
 export interface FeatureOutputDto {
     key: string | null;
     value: string;
     iconUrl: string | null;
+}
+
+export interface VariantOptionOutputDto {
+    optionId: number;
+    optionValueId: number;
+}
+
+export interface VariantOutputDto {
+    id: number;
+    slug: string;
+    stock: number;
+    optionValues: VariantOptionOutputDto[];
 }
 
 export interface ProductOutputDto {
@@ -43,6 +57,8 @@ export interface ProductOutputDto {
     imageUrlList: string[];
     offer: OfferOutputDto | null;
     store: StoreOutputDto;
-    options: any[];
+    options: OptionsOutputDto[];
     features: FeatureOutputDto[];
+    variantOptions: VariantOptionOutputDto[];
+    variants: VariantOutputDto[];
 }

@@ -6,8 +6,8 @@
             "isOfficial": true,
             "salesNumber": 10000,
             "productsNumber": 120,
-            "iconUrl": "https://example.com/store1/icon.png",
-            "bannerUrl": "https://example.com/store1/banner.png",
+            "iconUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIHt2Fch6-zFSbwF8X48m-Bfc6URPmz-Ma5Q&s",
+            "bannerUrl": "https://t2.tudocdn.net/696499?w=1920",
             "isPositiveService": true,
             "isOnTimeDelivery": true
         },
@@ -17,8 +17,8 @@
             "isOfficial": false,
             "salesNumber": 4500,
             "productsNumber": 85,
-            "iconUrl": "https://example.com/store2/icon.png",
-            "bannerUrl": "https://example.com/store2/banner.png",
+            "iconUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIHt2Fch6-zFSbwF8X48m-Bfc6URPmz-Ma5Q&s",
+            "bannerUrl": "https://t2.tudocdn.net/696499?w=1920",
             "isPositiveService": true,
             "isOnTimeDelivery": false
         },
@@ -28,8 +28,8 @@
             "isOfficial": true,
             "salesNumber": 7000,
             "productsNumber": 98,
-            "iconUrl": "https://example.com/store3/icon.png",
-            "bannerUrl": "https://example.com/store3/banner.png",
+            "iconUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIHt2Fch6-zFSbwF8X48m-Bfc6URPmz-Ma5Q&s",
+            "bannerUrl": "https://t2.tudocdn.net/696499?w=1920",
             "isPositiveService": true,
             "isOnTimeDelivery": true
         },
@@ -39,8 +39,8 @@
             "isOfficial": false,
             "salesNumber": 2300,
             "productsNumber": 60,
-            "iconUrl": "https://example.com/store4/icon.png",
-            "bannerUrl": "https://example.com/store4/banner.png",
+            "iconUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIHt2Fch6-zFSbwF8X48m-Bfc6URPmz-Ma5Q&s",
+            "bannerUrl": "https://t2.tudocdn.net/696499?w=1920",
             "isPositiveService": false,
             "isOnTimeDelivery": true
         },
@@ -50,8 +50,8 @@
             "isOfficial": false,
             "salesNumber": 3200,
             "productsNumber": 45,
-            "iconUrl": "https://example.com/store5/icon.png",
-            "bannerUrl": "https://example.com/store5/banner.png",
+            "iconUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIHt2Fch6-zFSbwF8X48m-Bfc6URPmz-Ma5Q&s",
+            "bannerUrl": "https://t2.tudocdn.net/696499?w=1920",
             "isPositiveService": true,
             "isOnTimeDelivery": false
         }
@@ -60,8 +60,8 @@
         {
             "id": 1,
             "storeId": 1,
-            "name": "Smartphone X100",
-            "description": "Poderoso e elegante, com câmera tripla.",
+            "name": "Apple iPhone 14 Plus",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nisl diam, ultricies sed semper nec, egestas quis nulla. Cras tempor justo tortor, nec mollis ante pretium tristique. Suspendisse euismod euismod mauris. Maecenas sit amet dapibus sapien. Praesent vel tincidunt sem, quis porttitor risus. Quisque aliquam vel ipsum vel maximus. Phasellus porttitor tellus sed sapien tristique hendrerit. Nullam sit amet molestie mi. Maecenas et velit ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque tempus vulputate nibh, in vehicula massa pellentesque in. Ut ut vehicula nibh.\n\nEtiam tempus nulla eu gravida imperdiet. Aliquam rutrum dictum metus non porta. Aenean mauris risus, scelerisque vitae nulla sed, posuere convallis sapien. Cras blandit dapibus nunc, eget viverra ex ultricies in. Aenean ullamcorper ornare enim, non malesuada dui pellentesque eget. Praesent porttitor aliquam velit et semper. Vivamus eu commodo sem, nec pulvinar odio. Phasellus a gravida sem. Aliquam pharetra nisl dolor, bibendum tincidunt massa imperdiet ac. Integer magna erat, luctus quis velit non, suscipit scelerisque erat. Donec eu risus finibus, ultricies velit ac, tempor dolor. Pellentesque viverra lobortis odio, vitae consequat turpis faucibus non.\n\nDonec scelerisque ante sit amet metus dictum faucibus. Proin mollis, massa eget tempus posuere, odio est convallis lorem, quis aliquam justo dui eget ex. Aenean dapibus at neque ac viverra. Proin quis turpis ante. Aenean at turpis accumsan, laoreet ligula sed, eleifend quam. Proin nisl augue, vulputate a dolor nec, pellentesque vulputate urna. Pellentesque eget nulla leo. Mauris viverra urna ut massa mollis, nec condimentum odio fermentum. Ut vulputate tortor ut ullamcorper sagittis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Fusce diam dolor, lobortis eu blandit non, commodo at lectus. Vivamus faucibus pharetra dignissim. Mauris id sodales tellus, eget porta ipsum. Curabitur vitae tempus diam. Curabitur tempor libero ac risus facilisis, quis efficitur justo molestie.",
             "rating": 4.8,
             "reviewCount": 512,
             "quantitySold": 3000
@@ -70,7 +70,7 @@
             "id": 2,
             "storeId": 2,
             "name": "Fone Bluetooth BassX",
-            "description": "Som potente e bateria de 20h.",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nisl diam, ultricies sed semper nec, egestas quis nulla. Cras tempor justo tortor, nec mollis ante pretium tristique. Suspendisse euismod euismod mauris. Maecenas sit amet dapibus sapien. Praesent vel tincidunt sem, quis porttitor risus. Quisque aliquam vel ipsum vel maximus. Phasellus porttitor tellus sed sapien tristique hendrerit. Nullam sit amet molestie mi. Maecenas et velit ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque tempus vulputate nibh, in vehicula massa pellentesque in. Ut ut vehicula nibh.\n\nEtiam tempus nulla eu gravida imperdiet. Aliquam rutrum dictum metus non porta. Aenean mauris risus, scelerisque vitae nulla sed, posuere convallis sapien. Cras blandit dapibus nunc, eget viverra ex ultricies in. Aenean ullamcorper ornare enim, non malesuada dui pellentesque eget. Praesent porttitor aliquam velit et semper. Vivamus eu commodo sem, nec pulvinar odio. Phasellus a gravida sem. Aliquam pharetra nisl dolor, bibendum tincidunt massa imperdiet ac. Integer magna erat, luctus quis velit non, suscipit scelerisque erat. Donec eu risus finibus, ultricies velit ac, tempor dolor. Pellentesque viverra lobortis odio, vitae consequat turpis faucibus non.\n\nDonec scelerisque ante sit amet metus dictum faucibus. Proin mollis, massa eget tempus posuere, odio est convallis lorem, quis aliquam justo dui eget ex. Aenean dapibus at neque ac viverra. Proin quis turpis ante. Aenean at turpis accumsan, laoreet ligula sed, eleifend quam. Proin nisl augue, vulputate a dolor nec, pellentesque vulputate urna. Pellentesque eget nulla leo. Mauris viverra urna ut massa mollis, nec condimentum odio fermentum. Ut vulputate tortor ut ullamcorper sagittis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Fusce diam dolor, lobortis eu blandit non, commodo at lectus. Vivamus faucibus pharetra dignissim. Mauris id sodales tellus, eget porta ipsum. Curabitur vitae tempus diam. Curabitur tempor libero ac risus facilisis, quis efficitur justo molestie.",
             "rating": 4.5,
             "reviewCount": 245,
             "quantitySold": 1500
@@ -79,7 +79,7 @@
             "id": 3,
             "storeId": 3,
             "name": "Notebook UltraFast",
-            "description": "Ideal para produtividade e jogos.",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nisl diam, ultricies sed semper nec, egestas quis nulla. Cras tempor justo tortor, nec mollis ante pretium tristique. Suspendisse euismod euismod mauris. Maecenas sit amet dapibus sapien. Praesent vel tincidunt sem, quis porttitor risus. Quisque aliquam vel ipsum vel maximus. Phasellus porttitor tellus sed sapien tristique hendrerit. Nullam sit amet molestie mi. Maecenas et velit ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque tempus vulputate nibh, in vehicula massa pellentesque in. Ut ut vehicula nibh.\n\nEtiam tempus nulla eu gravida imperdiet. Aliquam rutrum dictum metus non porta. Aenean mauris risus, scelerisque vitae nulla sed, posuere convallis sapien. Cras blandit dapibus nunc, eget viverra ex ultricies in. Aenean ullamcorper ornare enim, non malesuada dui pellentesque eget. Praesent porttitor aliquam velit et semper. Vivamus eu commodo sem, nec pulvinar odio. Phasellus a gravida sem. Aliquam pharetra nisl dolor, bibendum tincidunt massa imperdiet ac. Integer magna erat, luctus quis velit non, suscipit scelerisque erat. Donec eu risus finibus, ultricies velit ac, tempor dolor. Pellentesque viverra lobortis odio, vitae consequat turpis faucibus non.\n\nDonec scelerisque ante sit amet metus dictum faucibus. Proin mollis, massa eget tempus posuere, odio est convallis lorem, quis aliquam justo dui eget ex. Aenean dapibus at neque ac viverra. Proin quis turpis ante. Aenean at turpis accumsan, laoreet ligula sed, eleifend quam. Proin nisl augue, vulputate a dolor nec, pellentesque vulputate urna. Pellentesque eget nulla leo. Mauris viverra urna ut massa mollis, nec condimentum odio fermentum. Ut vulputate tortor ut ullamcorper sagittis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Fusce diam dolor, lobortis eu blandit non, commodo at lectus. Vivamus faucibus pharetra dignissim. Mauris id sodales tellus, eget porta ipsum. Curabitur vitae tempus diam. Curabitur tempor libero ac risus facilisis, quis efficitur justo molestie.",
             "rating": 4.7,
             "reviewCount": 678,
             "quantitySold": 1800
@@ -88,7 +88,7 @@
             "id": 4,
             "storeId": 4,
             "name": "Smartwatch FitLife",
-            "description": "Monitora saúde e atividade física.",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nisl diam, ultricies sed semper nec, egestas quis nulla. Cras tempor justo tortor, nec mollis ante pretium tristique. Suspendisse euismod euismod mauris. Maecenas sit amet dapibus sapien. Praesent vel tincidunt sem, quis porttitor risus. Quisque aliquam vel ipsum vel maximus. Phasellus porttitor tellus sed sapien tristique hendrerit. Nullam sit amet molestie mi. Maecenas et velit ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque tempus vulputate nibh, in vehicula massa pellentesque in. Ut ut vehicula nibh.\n\nEtiam tempus nulla eu gravida imperdiet. Aliquam rutrum dictum metus non porta. Aenean mauris risus, scelerisque vitae nulla sed, posuere convallis sapien. Cras blandit dapibus nunc, eget viverra ex ultricies in. Aenean ullamcorper ornare enim, non malesuada dui pellentesque eget. Praesent porttitor aliquam velit et semper. Vivamus eu commodo sem, nec pulvinar odio. Phasellus a gravida sem. Aliquam pharetra nisl dolor, bibendum tincidunt massa imperdiet ac. Integer magna erat, luctus quis velit non, suscipit scelerisque erat. Donec eu risus finibus, ultricies velit ac, tempor dolor. Pellentesque viverra lobortis odio, vitae consequat turpis faucibus non.\n\nDonec scelerisque ante sit amet metus dictum faucibus. Proin mollis, massa eget tempus posuere, odio est convallis lorem, quis aliquam justo dui eget ex. Aenean dapibus at neque ac viverra. Proin quis turpis ante. Aenean at turpis accumsan, laoreet ligula sed, eleifend quam. Proin nisl augue, vulputate a dolor nec, pellentesque vulputate urna. Pellentesque eget nulla leo. Mauris viverra urna ut massa mollis, nec condimentum odio fermentum. Ut vulputate tortor ut ullamcorper sagittis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Fusce diam dolor, lobortis eu blandit non, commodo at lectus. Vivamus faucibus pharetra dignissim. Mauris id sodales tellus, eget porta ipsum. Curabitur vitae tempus diam. Curabitur tempor libero ac risus facilisis, quis efficitur justo molestie.",
             "rating": 4.3,
             "reviewCount": 132,
             "quantitySold": 900
@@ -96,8 +96,8 @@
         {
             "id": 5,
             "storeId": 5,
-            "name": "Caixa de Som Pro",
-            "description": "Som estéreo e conexão rápida.",
+            "name": "Caixa de Som Bluetooth EDIFIER",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nisl diam, ultricies sed semper nec, egestas quis nulla. Cras tempor justo tortor, nec mollis ante pretium tristique. Suspendisse euismod euismod mauris. Maecenas sit amet dapibus sapien. Praesent vel tincidunt sem, quis porttitor risus. Quisque aliquam vel ipsum vel maximus. Phasellus porttitor tellus sed sapien tristique hendrerit. Nullam sit amet molestie mi. Maecenas et velit ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque tempus vulputate nibh, in vehicula massa pellentesque in. Ut ut vehicula nibh.\n\nEtiam tempus nulla eu gravida imperdiet. Aliquam rutrum dictum metus non porta. Aenean mauris risus, scelerisque vitae nulla sed, posuere convallis sapien. Cras blandit dapibus nunc, eget viverra ex ultricies in. Aenean ullamcorper ornare enim, non malesuada dui pellentesque eget. Praesent porttitor aliquam velit et semper. Vivamus eu commodo sem, nec pulvinar odio. Phasellus a gravida sem. Aliquam pharetra nisl dolor, bibendum tincidunt massa imperdiet ac. Integer magna erat, luctus quis velit non, suscipit scelerisque erat. Donec eu risus finibus, ultricies velit ac, tempor dolor. Pellentesque viverra lobortis odio, vitae consequat turpis faucibus non.\n\nDonec scelerisque ante sit amet metus dictum faucibus. Proin mollis, massa eget tempus posuere, odio est convallis lorem, quis aliquam justo dui eget ex. Aenean dapibus at neque ac viverra. Proin quis turpis ante. Aenean at turpis accumsan, laoreet ligula sed, eleifend quam. Proin nisl augue, vulputate a dolor nec, pellentesque vulputate urna. Pellentesque eget nulla leo. Mauris viverra urna ut massa mollis, nec condimentum odio fermentum. Ut vulputate tortor ut ullamcorper sagittis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Fusce diam dolor, lobortis eu blandit non, commodo at lectus. Vivamus faucibus pharetra dignissim. Mauris id sodales tellus, eget porta ipsum. Curabitur vitae tempus diam. Curabitur tempor libero ac risus facilisis, quis efficitur justo molestie.",
             "rating": 4.4,
             "reviewCount": 189,
             "quantitySold": 1100
@@ -134,14 +134,14 @@
         {
             "id": 1,
             "optionId": 1,
-            "value": "Azul cielo",
-            "imageUrl": "https://http2.mlstatic.com/D_Q_NP_726160-MLA75549316245_042024-R.webp"
+            "value": "Negro",
+            "imageUrl": "https://m.media-amazon.com/images/I/61cwywLZR-L._AC_SX679_.jpg"
         },
         {
             "id": 2,
             "optionId": 1,
-            "value": "Azul oscuro",
-            "imageUrl": "https://http2.mlstatic.com/D_Q_NP_777643-MLA75395342152_042024-R.webp"
+            "value": "Azul",
+            "imageUrl": "https://m.media-amazon.com/images/I/61cwywLZR-L._AC_SX679_.jpg"
         },
         {
             "id": 3,
@@ -166,49 +166,57 @@
         {
             "id": 7,
             "optionId": 5,
-            "value": "Preto"
+            "value": "Negro"
         }
     ],
     "product_variant": [
         {
             "id": 1,
             "productId": 1,
-            "sku": "X100-BLK-64",
-            "slug": "smartphone-x100-preto-64gb",
-            "price": 1999.99,
+            "sku": "IPH14PLS-BLK-64",
+            "slug": "Apple-iPhone-14-Plus-Negro-64Gb",
+            "price": 199999,
             "stock": 25
         },
         {
             "id": 2,
             "productId": 1,
-            "sku": "X100-BLU-128",
-            "slug": "smartphone-x100-azul-128gb",
-            "price": 2299.99,
+            "sku": "IPH14PLS-BLU-128",
+            "slug": "Apple-iPhone-14-Plus-Azul-128Gb",
+            "price": 229999,
             "stock": 12
         },
         {
             "id": 3,
             "productId": 2,
             "sku": "BASSX-WHT",
-            "slug": "fone-bassx-branco",
-            "price": 249.99,
+            "slug": "Fone-Bassx-Branco",
+            "price": 24999,
             "stock": 50
         },
         {
             "id": 4,
             "productId": 3,
             "sku": "ULTRA-I5-8GB",
-            "slug": "notebook-ultrafast-i5-8gb",
-            "price": 3499.99,
+            "slug": "Notebook-Acer-Aspire5-i5-8GB",
+            "price": 349999,
             "stock": 7
         },
         {
             "id": 5,
             "productId": 5,
             "sku": "SOUNDPRO-BLK",
-            "slug": "caixa-som-pro-preta",
-            "price": 399.99,
+            "slug": "Caixa-de-Som-Bluetooth-EDIFIER-24W-Negro",
+            "price": 39999,
             "stock": 30
+        },
+        {
+            "id": 6,
+            "productId": 1,
+            "sku": "IPH14PLS-BLK-128",
+            "slug": "Apple-iPhone-14-Plus-Negro-128Gb",
+            "price": 199999,
+            "stock": 25
         }
     ],
     "product_variant_option_value": [
@@ -246,70 +254,125 @@
             "variantId": 5,
             "optionId": 5,
             "optionValueId": 7
+        },
+        {
+            "variantId": 6,
+            "optionId": 1,
+            "optionValueId": 1
+        },
+        {
+            "variantId": 6,
+            "optionId": 2,
+            "optionValueId": 4
         }
     ],
     "product_variant_image": [
         {
             "id": 1,
             "variantId": 2,
-            "url": "https://example.com/products/x100/blue.png"
+            "url": "https://m.media-amazon.com/images/I/41+jLq6yJKL._AC_SL1000_.jpg"
+        },
+        {
+            "id": 1,
+            "variantId": 2,
+            "url": "https://m.media-amazon.com/images/I/31jrTen3vUL._AC_SL1000_.jpg"
+        },
+        {
+            "id": 1,
+            "variantId": 2,
+            "url": "https://m.media-amazon.com/images/I/51k8c06WvdL._AC_SL1000_.jpg"
         },
         {
             "id": 2,
             "variantId": 3,
-            "url": "https://example.com/products/bassx/white.png"
+            "url": "https://m.media-amazon.com/images/I/61cwywLZR-L._AC_SX679_.jpg"
         },
         {
             "id": 3,
             "variantId": 4,
-            "url": "https://example.com/products/ultrafast/i5.png"
+            "url": "https://m.media-amazon.com/images/I/51f+8DD2VbL._AC_SL1000_.jpg"
+        },
+        {
+            "id": 3,
+            "variantId": 4,
+            "url": "https://m.media-amazon.com/images/I/517qAmpxmoL._AC_SL1000_.jpg"
+        },
+        {
+            "id": 3,
+            "variantId": 4,
+            "url": "https://m.media-amazon.com/images/I/41DLGLlpGGL._AC_SL1000_.jpg"
+        },
+        {
+            "id": 1,
+            "variantId": 6,
+            "url": "https://m.media-amazon.com/images/I/61cwywLZR-L._AC_SX679_.jpg"
+        },
+        {
+            "id": 2,
+            "variantId": 6,
+            "url": "https://m.media-amazon.com/images/I/61cwywLZR-L._AC_SX679_.jpg"
+        },
+        {
+            "id": 3,
+            "variantId": 6,
+            "url": "https://m.media-amazon.com/images/I/61cwywLZR-L._AC_SX679_.jpg"
         },
         {
             "id": 4,
             "variantId": 5,
-            "url": "https://example.com/products/soundpro/black.png"
+            "url": "https://m.media-amazon.com/images/I/71e2NyAvN6L.__AC_SX300_SY300_QL70_ML2_.jpg"
+        },
+        {
+            "id": 4,
+            "variantId": 5,
+            "url": "https://m.media-amazon.com/images/I/71RJ4MEACrL._AC_SL1500_.jpg"
+        },
+        {
+            "id": 4,
+            "variantId": 5,
+            "url": "https://m.media-amazon.com/images/I/81LjKVcjDDL._AC_SL1500_.jpg"
         },
         {
             "id": 6,
             "variantId": 1,
-            "url": "https://http2.mlstatic.com/D_NQ_NP_973285-MLA81365234553_122024-O.webp"
+            "url": "https://m.media-amazon.com/images/I/61cwywLZR-L._AC_SX679_.jpg"
         },
         {
             "id": 7,
             "variantId": 1,
-            "url": "https://http2.mlstatic.com/D_NQ_NP_2X_627117-MLA81365484947_122024-F.webp"
+            "url": "https://m.media-amazon.com/images/I/61cwywLZR-L._AC_SX679_.jpg"
         },
         {
             "id": 8,
             "variantId": 1,
-            "url": "https://http2.mlstatic.com/D_NQ_NP_2X_953172-MLA81365446813_122024-F.webp"
+            "url": "https://m.media-amazon.com/images/I/61cwywLZR-L._AC_SX679_.jpg"
         },
         {
             "id": 9,
             "variantId": 1,
-            "url": "https://http2.mlstatic.com/D_NQ_NP_2X_950529-MLA81367015155_122024-F.webp"
+            "url": "https://m.media-amazon.com/images/I/61cwywLZR-L._AC_SX679_.jpg"
         },
         {
             "id": 10,
             "variantId": 1,
-            "url": "https://http2.mlstatic.com/D_NQ_NP_929628-MLA81366753953_122024-O.webp"
+            "url": "https://m.media-amazon.com/images/I/61cwywLZR-L._AC_SX679_.jpg"
         },
         {
             "id": 11,
             "variantId": 1,
-            "url": "https://http2.mlstatic.com/D_NQ_NP_2X_936470-MLA81099163506_122024-F.webp"
+            "url": "https://m.media-amazon.com/images/I/61cwywLZR-L._AC_SX679_.jpg"
         },
         {
             "id": 12,
             "variantId": 1,
-            "url": "https://http2.mlstatic.com/D_NQ_NP_844983-MLA81366753961_122024-O.webp"
+            "url": "https://m.media-amazon.com/images/I/61cwywLZR-L._AC_SX679_.jpg"
         }
     ],
     "offer": [
         {
             "id": 1,
             "productVariantId": 1,
-            "offerPrice": 1799.99,
+            "offerPrice": 179999,
             "status": "ACTIVE",
             "startDate": "2025-07-01T00:00:00Z",
             "endDate": "2025-07-31T23:59:59Z"
@@ -317,7 +380,7 @@
         {
             "id": 2,
             "productVariantId": 3,
-            "offerPrice": 199.99,
+            "offerPrice": 19999,
             "status": "SCHEDULED",
             "startDate": "2025-08-01T00:00:00Z",
             "endDate": "2025-08-15T23:59:59Z"
@@ -325,7 +388,7 @@
         {
             "id": 3,
             "productVariantId": 2,
-            "offerPrice": 1999.99,
+            "offerPrice": 199999,
             "status": "DONE",
             "startDate": "2025-06-01T00:00:00Z",
             "endDate": "2025-06-30T23:59:59Z"
@@ -333,7 +396,7 @@
         {
             "id": 4,
             "productVariantId": 4,
-            "offerPrice": 2999.99,
+            "offerPrice": 299999,
             "status": "ACTIVE",
             "startDate": "2025-07-10T00:00:00Z",
             "endDate": "2025-07-20T23:59:59Z"
@@ -341,7 +404,7 @@
         {
             "id": 5,
             "productVariantId": 5,
-            "offerPrice": 349.99,
+            "offerPrice": 34999,
             "status": "ACTIVE",
             "startDate": "2025-07-05T00:00:00Z",
             "endDate": "2025-07-15T23:59:59Z"
@@ -376,6 +439,12 @@
             "productId": 4,
             "key": "Bateria",
             "value": "7 dias de duração",
+            "iconUrl": null
+        },
+        {
+            "productId": 5,
+            "key": "Bateria",
+            "value": "8 horas de duração",
             "iconUrl": null
         }
     ]

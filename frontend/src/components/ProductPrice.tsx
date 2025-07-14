@@ -4,10 +4,11 @@ import FormattedPrice from "./FormattedPrice";
 interface ProductPriceProps {
 	isOfferEnabled: boolean;
 	price: number;
-	offerPrice: number;
+	offerPrice?: number;
 }
 
 export default function ProductPrice({ isOfferEnabled, offerPrice, price }: ProductPriceProps) {
+	const isOfferValid = isOfferEnabled && offerPrice;
 	return (
 		<div data-testid="product-price-component">
 			{isOfferEnabled && (
@@ -17,11 +18,11 @@ export default function ProductPrice({ isOfferEnabled, offerPrice, price }: Prod
 			)}
 			<p className="text-3xl font-light flex items-center gap-2">
 				<FormattedPrice
-					valueInCents={isOfferEnabled ? offerPrice : price}
+					valueInCents={isOfferValid ? offerPrice : price}
 					size="large"
 					isMuted={false}
 				/>
-				{isOfferEnabled && (
+				{isOfferValid && (
 					<span className="text-sm text-green-500">
 						{calcOfferPercentage(price, offerPrice)}% OFF
 					</span>
@@ -32,7 +33,7 @@ export default function ProductPrice({ isOfferEnabled, offerPrice, price }: Prod
 				<span className="text-green-500">
 					10 cuotas de{" "}
 					<FormattedPrice
-						valueInCents={(isOfferEnabled ? offerPrice : price) / 10}
+						valueInCents={(isOfferValid ? offerPrice : price) / 10}
 						size="normal"
 						isMuted={false}
 					/>{" "}

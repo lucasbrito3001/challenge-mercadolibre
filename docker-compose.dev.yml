@@ -1,0 +1,40 @@
+services:
+    backend:
+        build:
+            context: ./backend
+            dockerfile: Dockerfile.dev
+        container_name: backend_meli
+        ports:
+            - "3000:3000"
+        volumes:
+            - ./backend:/app
+            - /app/node_modules
+        environment:
+            NODE_ENV: development
+            TEMPO_URL: "http://tempo:4318"
+        command: npm run start:dev
+        restart: unless-stopped
+        networks:
+            - meli-network
+
+    frontend:
+        build:
+            context: ./frontend
+            dockerfile: Dockerfile.dev
+        container_name: frontend_meli
+        ports:
+            - "5173:5173"
+        volumes:
+            - ./frontend:/app
+            - /app/node_modules
+        environment:
+            NODE_ENV: development
+            VITE_API_URL: http://localhost:3000
+        command: npm run dev
+        restart: unless-stopped
+        networks:
+            - meli-network
+
+networks:
+    meli-network:
+        external: true

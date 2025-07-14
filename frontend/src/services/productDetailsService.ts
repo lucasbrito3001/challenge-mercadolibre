@@ -1,10 +1,5 @@
-import type { ProductDetails, VariantOptionDto } from "../types/ProductDetails";
+import type { ProductDetails } from "../types/ProductDetails";
 import { api } from "../utils/api";
-
-interface GetVariantByOptionsResult {
-	id: number;
-	slug: string;
-}
 
 interface ProductDetailsService {
 	getById(id: string): Promise<ProductDetails | null>;

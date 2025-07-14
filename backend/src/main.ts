@@ -2,13 +2,17 @@ import { NestFactory } from '@nestjs/core';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { AppModule } from './app.module';
 import { RequestMethod } from '@nestjs/common';
-import { PinoLogger } from 'nestjs-pino';
-import './tracing';
+import { Logger } from 'nestjs-pino';
+import { HttpExceptionFilter } from './http-exception.filter';
+import { setupTracing } from './tracing';
 
 async function bootstrap() {
     const app = await NestFactory.create(AppModule, {
         bufferLogs: true,
     });
+
+    const logger = app.get(Logger);
+    app.useLogger(logger);
 
     const config = new DocumentBuilder()
         .setTitle('Meli Challenge API')
@@ -29,12 +33,12 @@ async function bootstrap() {
         ],
     });
 
+    setupTracing(logger);
+    app.useGlobalFilters(new HttpExceptionFilter(logger));
+
     app.enableCors();
 
     const server = await app.listen(3000);
-    const logger = await app.resolve(PinoLogger);
-
-    logger.info('Starting app logs -----------------------------------------');
 
     const shutdown = async (signal: string) => {
         logger.warn(`Recebido sinal ${signal}. Encerrando...`);
@@ -42,7 +46,7 @@ async function bootstrap() {
         await app.close();
 
         server.close(() => {
-            logger.info(
+            logger.log(
                 'Conexões HTTP finalizadas. Aplicação encerrada com sucesso.',
             );
             process.exit(0);

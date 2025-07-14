@@ -1,6 +1,7 @@
 import { NodeSDK } from '@opentelemetry/sdk-node';
 import { getNodeAutoInstrumentations } from '@opentelemetry/auto-instrumentations-node';
 import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-http';
+import { Logger } from 'nestjs-pino';
 
 const sdk = new NodeSDK({
     traceExporter: new OTLPTraceExporter({
@@ -10,18 +11,16 @@ const sdk = new NodeSDK({
     serviceName: 'backend-meli',
 });
 
-function setupTracing() {
+export function setupTracing(logger: Logger) {
     try {
         sdk.start();
-        console.log('✅ OpenTelemetry initialized');
+        logger.log('OpenTelemetry initialized');
     } catch (error) {
-        console.error('Error initializing OpenTelemetry:', error);
+        logger.error('Error initializing OpenTelemetry:', error);
     }
+
+    process.on('SIGTERM', async () => {
+        await sdk.shutdown();
+        logger.log('Tracing terminated');
+    });
 }
-
-setupTracing();
-
-process.on('SIGTERM', async () => {
-    await sdk.shutdown();
-    console.log('Tracing terminated');
-});

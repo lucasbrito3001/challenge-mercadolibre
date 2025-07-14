@@ -67,7 +67,7 @@ O principal motivo da escolha das tecnologias utilizadas, foi o meu domínio sob
 
 A parte geral do frontend e backend foram relativamente simples, mas algumas funcionalidades se mostraram desafiadoras. Por exemplo o selecionador de variação de produtos. Quando se tem apenas uma opção de variação é simples, mas quando combinam várias opções, por exemplo cor, armazenamento e memória, já se torna mais complexo. A decisão de qual variação será definida em cada combinação de opções, manipular tudo isso por frontend se mostrou difícil e com esforço alto.
 
-Para solucionar isso, eu resolvi devolver o máximo de informações pelo backend. Ao buscar um produto pelo slug dele (endpoint principal), já é retornado também os dados da loja, as opções da variação selecionada, todas as variações possíveis para o produto geral, os dados de oferta, características e tudo mais.
+Para solucionar isso, eu resolvi devolver o máximo de informações pelo backend. Ao buscar um produto pelo slug dele (endpoint principal), já é retornado também os dados da loja, as opções da variação selecionada, todas as variações possíveis para o produto geral, os dados de oferta, características e tudo mais e se o usuario selecionar uma variação que não existe, ele busca a próxima que faz sentido e define automaticamente, como é feito no site do Mercado Livre.
 
 O dto de saída do backend para esse endpoint foi o seguinte:
 

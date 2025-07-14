@@ -13,7 +13,6 @@ import useIsDesktop from "../hooks/breakpoint";
 import { useEffect, useState } from "react";
 import type { ProductDetails, VariantOptionDto } from "../types/ProductDetails";
 import { productDetailsService } from "../services/productDetailsService";
-import { NotFoundPage } from "../components/NotFound";
 import { useNavigate } from "react-router-dom";
 
 interface ProductDetailsProps {

@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-export default function Auth() {
+export default function Search() {
 	const navigate = useNavigate();
 
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -15,8 +15,8 @@ export default function Auth() {
 
 	return (
 		<div className="flex items-center justify-center h-[92vh] bg-white text-center p-6">
-			<div>
-				<h1 className="text-3xl font-semibold text-gray-800 mb-4">Estás autenticado</h1>
+			<div className="w-full">
+				<h1 className="text-3xl font-semibold text-gray-800 mb-4">MeLi Challenge</h1>
 				<p className="text-gray-600 mb-2">Buscar algo</p>
 				<div className="max-w-xl mx-auto mt-10">
 					<form
@@ -26,8 +26,9 @@ export default function Auth() {
 						<div className="relative flex-grow">
 							<input
 								type="text"
-								placeholder="Buscar productos"
+								placeholder="Haga clic para ver las opciones"
 								className="w-full pl-12 pr-4 py-3 focus:outline-none"
+                                list="products"
 							/>
 
 							<div className="absolute inset-y-0 left-4 flex items-center pointer-events-none text-gray-400">
@@ -55,6 +56,10 @@ export default function Auth() {
 							Buscar
 						</button>
 					</form>
+					<datalist id="products">
+						<option value="Notebook-Acer-Aspire5-i5-8GB" />
+						<option value="Apple-iPhone-14-Plus-Negro-64Gb" />
+					</datalist>
 				</div>
 			</div>
 		</div>

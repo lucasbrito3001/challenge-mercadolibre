@@ -6,8 +6,8 @@
             "isOfficial": true,
             "salesNumber": 10000,
             "productsNumber": 120,
-            "iconUrl": "https://example.com/store1/icon.png",
-            "bannerUrl": "https://example.com/store1/banner.png",
+            "iconUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIHt2Fch6-zFSbwF8X48m-Bfc6URPmz-Ma5Q&s",
+            "bannerUrl": "https://t2.tudocdn.net/696499?w=1920",
             "isPositiveService": true,
             "isOnTimeDelivery": true
         },
@@ -17,8 +17,8 @@
             "isOfficial": false,
             "salesNumber": 4500,
             "productsNumber": 85,
-            "iconUrl": "https://example.com/store2/icon.png",
-            "bannerUrl": "https://example.com/store2/banner.png",
+            "iconUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIHt2Fch6-zFSbwF8X48m-Bfc6URPmz-Ma5Q&s",
+            "bannerUrl": "https://t2.tudocdn.net/696499?w=1920",
             "isPositiveService": true,
             "isOnTimeDelivery": false
         },
@@ -28,8 +28,8 @@
             "isOfficial": true,
             "salesNumber": 7000,
             "productsNumber": 98,
-            "iconUrl": "https://example.com/store3/icon.png",
-            "bannerUrl": "https://example.com/store3/banner.png",
+            "iconUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIHt2Fch6-zFSbwF8X48m-Bfc6URPmz-Ma5Q&s",
+            "bannerUrl": "https://t2.tudocdn.net/696499?w=1920",
             "isPositiveService": true,
             "isOnTimeDelivery": true
         },
@@ -39,8 +39,8 @@
             "isOfficial": false,
             "salesNumber": 2300,
             "productsNumber": 60,
-            "iconUrl": "https://example.com/store4/icon.png",
-            "bannerUrl": "https://example.com/store4/banner.png",
+            "iconUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIHt2Fch6-zFSbwF8X48m-Bfc6URPmz-Ma5Q&s",
+            "bannerUrl": "https://t2.tudocdn.net/696499?w=1920",
             "isPositiveService": false,
             "isOnTimeDelivery": true
         },
@@ -50,8 +50,8 @@
             "isOfficial": false,
             "salesNumber": 3200,
             "productsNumber": 45,
-            "iconUrl": "https://example.com/store5/icon.png",
-            "bannerUrl": "https://example.com/store5/banner.png",
+            "iconUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIHt2Fch6-zFSbwF8X48m-Bfc6URPmz-Ma5Q&s",
+            "bannerUrl": "https://t2.tudocdn.net/696499?w=1920",
             "isPositiveService": true,
             "isOnTimeDelivery": false
         }
@@ -60,7 +60,7 @@
         {
             "id": 1,
             "storeId": 1,
-            "name": "Smartphone X100",
+            "name": "iPhone 14",
             "description": "Poderoso e elegante, com câmera tripla.",
             "rating": 4.8,
             "reviewCount": 512,
@@ -135,13 +135,13 @@
             "id": 1,
             "optionId": 1,
             "value": "Azul cielo",
-            "imageUrl": "https://http2.mlstatic.com/D_Q_NP_726160-MLA75549316245_042024-R.webp"
+            "imageUrl": "https://m.media-amazon.com/images/I/61cwywLZR-L._AC_SX679_.jpg"
         },
         {
             "id": 2,
             "optionId": 1,
             "value": "Azul oscuro",
-            "imageUrl": "https://http2.mlstatic.com/D_Q_NP_777643-MLA75395342152_042024-R.webp"
+            "imageUrl": "https://m.media-amazon.com/images/I/61cwywLZR-L._AC_SX679_.jpg"
         },
         {
             "id": 3,
@@ -174,16 +174,16 @@
             "id": 1,
             "productId": 1,
             "sku": "X100-BLK-64",
-            "slug": "smartphone-x100-preto-64gb",
-            "price": 1999.99,
+            "slug": "iphone-14-preto-64gb",
+            "price": 199999,
             "stock": 25
         },
         {
             "id": 2,
             "productId": 1,
             "sku": "X100-BLU-128",
-            "slug": "smartphone-x100-azul-128gb",
-            "price": 2299.99,
+            "slug": "iphone-14-azul-128gb",
+            "price": 229999,
             "stock": 12
         },
         {
@@ -191,7 +191,7 @@
             "productId": 2,
             "sku": "BASSX-WHT",
             "slug": "fone-bassx-branco",
-            "price": 249.99,
+            "price": 24999,
             "stock": 50
         },
         {
@@ -199,7 +199,7 @@
             "productId": 3,
             "sku": "ULTRA-I5-8GB",
             "slug": "notebook-ultrafast-i5-8gb",
-            "price": 3499.99,
+            "price": 349999,
             "stock": 7
         },
         {
@@ -207,8 +207,16 @@
             "productId": 5,
             "sku": "SOUNDPRO-BLK",
             "slug": "caixa-som-pro-preta",
-            "price": 399.99,
+            "price": 39999,
             "stock": 30
+        },
+        {
+            "id": 6,
+            "productId": 1,
+            "sku": "X100-BLK-128",
+            "slug": "iphone-14-preto-128gb",
+            "price": 199999,
+            "stock": 25
         }
     ],
     "product_variant_option_value": [
@@ -246,70 +254,95 @@
             "variantId": 5,
             "optionId": 5,
             "optionValueId": 7
+        },
+        {
+            "variantId": 6,
+            "optionId": 1,
+            "optionValueId": 1
+        },
+        {
+            "variantId": 6,
+            "optionId": 2,
+            "optionValueId": 4
         }
     ],
     "product_variant_image": [
         {
             "id": 1,
             "variantId": 2,
-            "url": "https://example.com/products/x100/blue.png"
+            "url": "https://m.media-amazon.com/images/I/61cwywLZR-L._AC_SX679_.jpg"
         },
         {
             "id": 2,
             "variantId": 3,
-            "url": "https://example.com/products/bassx/white.png"
+            "url": "https://m.media-amazon.com/images/I/61cwywLZR-L._AC_SX679_.jpg"
         },
         {
             "id": 3,
             "variantId": 4,
-            "url": "https://example.com/products/ultrafast/i5.png"
+            "url": "https://m.media-amazon.com/images/I/61cwywLZR-L._AC_SX679_.jpg"
+        },
+        {
+            "id": 1,
+            "variantId": 6,
+            "url": "https://m.media-amazon.com/images/I/61cwywLZR-L._AC_SX679_.jpg"
+        },
+        {
+            "id": 2,
+            "variantId": 6,
+            "url": "https://m.media-amazon.com/images/I/61cwywLZR-L._AC_SX679_.jpg"
+        },
+        {
+            "id": 3,
+            "variantId": 6,
+            "url": "https://m.media-amazon.com/images/I/61cwywLZR-L._AC_SX679_.jpg"
         },
         {
             "id": 4,
             "variantId": 5,
-            "url": "https://example.com/products/soundpro/black.png"
+            "url": "https://m.media-amazon.com/images/I/61cwywLZR-L._AC_SX679_.jpg"
         },
         {
             "id": 6,
             "variantId": 1,
-            "url": "https://http2.mlstatic.com/D_NQ_NP_973285-MLA81365234553_122024-O.webp"
+            "url": "https://m.media-amazon.com/images/I/61cwywLZR-L._AC_SX679_.jpg"
         },
         {
             "id": 7,
             "variantId": 1,
-            "url": "https://http2.mlstatic.com/D_NQ_NP_2X_627117-MLA81365484947_122024-F.webp"
+            "url": "https://m.media-amazon.com/images/I/61cwywLZR-L._AC_SX679_.jpg"
         },
         {
             "id": 8,
             "variantId": 1,
-            "url": "https://http2.mlstatic.com/D_NQ_NP_2X_953172-MLA81365446813_122024-F.webp"
+            "url": "https://m.media-amazon.com/images/I/61cwywLZR-L._AC_SX679_.jpg"
         },
         {
             "id": 9,
             "variantId": 1,
-            "url": "https://http2.mlstatic.com/D_NQ_NP_2X_950529-MLA81367015155_122024-F.webp"
+            "url": "https://m.media-amazon.com/images/I/61cwywLZR-L._AC_SX679_.jpg"
         },
         {
             "id": 10,
             "variantId": 1,
-            "url": "https://http2.mlstatic.com/D_NQ_NP_929628-MLA81366753953_122024-O.webp"
+            "url": "https://m.media-amazon.com/images/I/61cwywLZR-L._AC_SX679_.jpg"
         },
         {
             "id": 11,
             "variantId": 1,
-            "url": "https://http2.mlstatic.com/D_NQ_NP_2X_936470-MLA81099163506_122024-F.webp"
+            "url": "https://m.media-amazon.com/images/I/61cwywLZR-L._AC_SX679_.jpg"
         },
         {
             "id": 12,
             "variantId": 1,
-            "url": "https://http2.mlstatic.com/D_NQ_NP_844983-MLA81366753961_122024-O.webp"
+            "url": "https://m.media-amazon.com/images/I/61cwywLZR-L._AC_SX679_.jpg"
         }
     ],
     "offer": [
         {
             "id": 1,
             "productVariantId": 1,
-            "offerPrice": 1799.99,
+            "offerPrice": 179999,
             "status": "ACTIVE",
             "startDate": "2025-07-01T00:00:00Z",
             "endDate": "2025-07-31T23:59:59Z"
@@ -317,7 +350,7 @@
         {
             "id": 2,
             "productVariantId": 3,
-            "offerPrice": 199.99,
+            "offerPrice": 19999,
             "status": "SCHEDULED",
             "startDate": "2025-08-01T00:00:00Z",
             "endDate": "2025-08-15T23:59:59Z"
@@ -325,7 +358,7 @@
         {
             "id": 3,
             "productVariantId": 2,
-            "offerPrice": 1999.99,
+            "offerPrice": 199999,
             "status": "DONE",
             "startDate": "2025-06-01T00:00:00Z",
             "endDate": "2025-06-30T23:59:59Z"
@@ -333,7 +366,7 @@
         {
             "id": 4,
             "productVariantId": 4,
-            "offerPrice": 2999.99,
+            "offerPrice": 299999,
             "status": "ACTIVE",
             "startDate": "2025-07-10T00:00:00Z",
             "endDate": "2025-07-20T23:59:59Z"
@@ -341,7 +374,7 @@
         {
             "id": 5,
             "productVariantId": 5,
-            "offerPrice": 349.99,
+            "offerPrice": 34999,
             "status": "ACTIVE",
             "startDate": "2025-07-05T00:00:00Z",
             "endDate": "2025-07-15T23:59:59Z"

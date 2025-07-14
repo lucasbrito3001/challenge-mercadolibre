@@ -24,6 +24,7 @@ async function bootstrap() {
             { path: '', method: RequestMethod.GET },
         ],
     });
+    app.enableCors();
     await app.listen(3000);
 }
 bootstrap();

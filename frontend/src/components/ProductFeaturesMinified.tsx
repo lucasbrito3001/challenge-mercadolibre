@@ -10,7 +10,7 @@ export default function ProductFeaturesMinified({
 	const renderFeaturesListItem = () => {
 		let featuresToShow = [];
 
-		for (let idx = 0; idx < maxItems; idx++) {
+		for (let idx = 0; idx < Math.min(maxItems, features.length); idx++) {
 			featuresToShow.push(
 				<li key={idx} className="text-sm md:text-xs">
 					{features[idx].key && `${features[idx].key}: `} {features[idx].value}

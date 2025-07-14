@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { ProductRepository } from './product.repository';
 import { ProductVariantRepository } from 'src/product-variant/product-variant.repository';
-import { ProductOutputDto, VariantsOutputDto } from './dto/get-product.dto';
+import { ProductOutputDto } from './dto/get-product.dto';
 import { OfferRepository } from 'src/offer/offer.repository';
 import { OptionRepository } from 'src/option/option.repository';
 import { StoreRepository } from 'src/store/store.repository';
@@ -29,9 +29,16 @@ export class ProductService {
         const options = await this.optionRepository.getAllByProductId(
             product.id,
         );
+        const variantOptions = await this.variantRepository.getOptionValues(
+            variant.id,
+        );
         const features = await this.featureRepository.getAllByProductId(
             product.id,
         );
+        const variants =
+            await this.variantRepository.getVariantsWithOptionsByProductId(
+                product.id,
+            );
 
         return {
             description: product.description,
@@ -55,11 +62,33 @@ export class ProductService {
                 isOnTimeDelivery: store.isOnTimeDelivery,
                 bannerUrl: store.bannerUrl,
             },
-            options: options,
+            options: options.map((option) => ({
+                value: option.value,
+                id: option.id,
+                optionValues: option.optionValues.map((optionValue) => ({
+                    value: optionValue.value,
+                    imageUrl: optionValue.imageUrl,
+                    id: optionValue.id,
+                    optionId: optionValue.optionId,
+                })),
+            })),
             features: features.map((feature) => ({
                 key: feature.key,
                 value: feature.value,
                 iconUrl: feature.iconUrl,
+            })),
+            variantOptions: variantOptions.map((variantOption) => ({
+                optionId: variantOption.optionId,
+                optionValueId: variantOption.optionValueId,
+            })),
+            variants: variants.map((variant) => ({
+                id: variant.id,
+                slug: variant.slug,
+                stock: variant.stock,
+                optionValues: variant.optionValues.map((optionValue) => ({
+                    optionId: optionValue.optionId,
+                    optionValueId: optionValue.optionValueId,
+                })),
             })),
         };
     }

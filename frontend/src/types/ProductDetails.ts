@@ -1,9 +1,3 @@
-export interface ProductOption {
-	key: string;
-	value: string;
-	imageUrl: string;
-}
-
 export interface ProductStore {
 	salesNumber: number;
 	productsNumber: number;
@@ -26,9 +20,28 @@ export interface ProductFeature {
 	iconUrl?: string | null;
 }
 
-export interface ProductOptions {
-	text: string;
-	list: ProductOption[];
+export interface ProductOptionValue {
+	value: string;
+	imageUrl: string;
+	id: number;
+}
+
+export interface ProductOption {
+	value: string;
+	id: number;
+	optionValues: ProductOptionValue[];
+}
+
+export interface VariantOptionDto {
+	optionId: number;
+	optionValueId: number;
+}
+
+export interface Variant {
+	id: number;
+	slug: string;
+	stock: number;
+	optionValues: VariantOptionDto[];
 }
 
 export interface ProductDetails {
@@ -40,8 +53,10 @@ export interface ProductDetails {
 	quantitySold: number;
 	imageUrlList: string[];
 	price: number;
-	offer: ProductOffer;
+	offer: ProductOffer | null;
 	store: ProductStore;
-	options: ProductOptions;
+	options: ProductOption[];
 	features: ProductFeature[];
+	variantOptions: VariantOptionDto[];
+	variants: Variant[];
 }

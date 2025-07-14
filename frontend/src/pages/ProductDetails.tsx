@@ -11,7 +11,7 @@ import ProductFeatures from "../components/ProductFeatures";
 import ProductDescription from "../components/ProductDescription";
 import useIsDesktop from "../hooks/breakpoint";
 import { useEffect, useState } from "react";
-import type { ProductDetails } from "../types/ProductDetails";
+import type { ProductDetails, VariantOptionDto } from "../types/ProductDetails";
 import { productDetailsService } from "../services/productDetailsService";
 import { NotFoundPage } from "../components/NotFound";
 
@@ -21,14 +21,14 @@ interface ProductDetailsProps {
 
 export default function ProductDetails({ productDetailsService }: ProductDetailsProps) {
 	const isDesktop = useIsDesktop();
+	const productSlug = window.location.pathname.slice(1);
 
 	const [productDetails, setProductDetails] = useState<ProductDetails | null>(null);
 	const [isLoading, setIsLoading] = useState<boolean>(true);
 
 	useEffect(() => {
 		async function loadProductDetails() {
-			const productId = window.location.pathname.slice(1);
-			const productDetails = await productDetailsService.getById(productId);
+			const productDetails = await productDetailsService.getById(productSlug);
 
 			if (productDetails !== null) setProductDetails(productDetails);
 
@@ -37,6 +37,47 @@ export default function ProductDetails({ productDetailsService }: ProductDetails
 
 		loadProductDetails();
 	}, []);
+
+	const changeProductVariant = async (optionId: number, optionValueId: number): Promise<void> => {
+		if (productDetails === null) {
+			window.location.href = "error";
+			return;
+		}
+
+		const newOptions = productDetails?.variantOptions.map(
+			(currOpt): VariantOptionDto =>
+				currOpt.optionId === optionId
+					? { optionId: currOpt.optionId, optionValueId }
+					: { optionId: currOpt.optionId, optionValueId: currOpt.optionValueId }
+		);
+
+		const slug = productDetails.variants.find((variant) =>
+			variant.optionValues.every((optionValue) =>
+				newOptions.some(
+					(newOpt) =>
+						newOpt.optionId === optionValue.optionId &&
+						newOpt.optionValueId === optionValue.optionValueId
+				)
+			)
+		)?.slug;
+
+		if (!slug) {
+			const nextMatchSlug = productDetails.variants.find((variant) =>
+				variant.optionValues.some(
+					(optionValue) =>
+						optionId === optionValue.optionId &&
+						optionValueId === optionValue.optionValueId
+				)
+			)?.slug;
+
+			window.location.href = nextMatchSlug ?? "error";
+			return;
+		}
+
+		window.location.href = slug;
+
+		return;
+	};
 
 	return (
 		<div>
@@ -47,19 +88,22 @@ export default function ProductDetails({ productDetailsService }: ProductDetails
 						{!isDesktop && (
 							<div className="flex flex-col gap-8 p-4">
 								<ProductTitle
-									title={productDetails.title}
+									slug={productSlug}
 									quantitySold={productDetails.quantitySold}
 									rating={productDetails.rating}
 									reviewCount={productDetails.reviewCount}
 								/>
 								<ImageGallery images={productDetails.imageUrlList} />
 								<ProductOptionSelector
-									options={productDetails.options.list}
-									title={productDetails.options.text}
+									onChange={changeProductVariant}
+									currentOptions={productDetails.variantOptions}
+									options={productDetails.options}
+									pathPrefix={productDetails.title}
+									variants={productDetails.variants}
 								/>
 								<ProductPrice
-									isOfferEnabled={productDetails.offer.enabled}
-									offerPrice={productDetails.offer.price}
+									isOfferEnabled={!!productDetails.offer}
+									offerPrice={productDetails.offer?.price}
 									price={productDetails.price}
 								/>
 								<CheckoutCard
@@ -70,7 +114,10 @@ export default function ProductDetails({ productDetailsService }: ProductDetails
 									storeName={productDetails.store.name}
 								/>
 								<hr />
-								<ProductFeaturesMinified features={productDetails.features} maxItems={4} />
+								<ProductFeaturesMinified
+									features={productDetails.features}
+									maxItems={4}
+								/>
 								<hr />
 								<ProductFeatures features={productDetails.features} />
 								<hr />
@@ -101,21 +148,27 @@ export default function ProductDetails({ productDetailsService }: ProductDetails
 										</div>
 										<div className="w-1/2 flex flex-col gap-8">
 											<ProductTitle
-												title={productDetails.title}
+												slug={productSlug}
 												quantitySold={productDetails.quantitySold}
 												rating={productDetails.rating}
 												reviewCount={productDetails.reviewCount}
 											/>
 											<ProductPrice
-												isOfferEnabled={productDetails.offer.enabled}
-												offerPrice={productDetails.offer.price}
+												isOfferEnabled={!!productDetails.offer}
+												offerPrice={productDetails.offer?.price}
 												price={productDetails.price}
 											/>
 											<ProductOptionSelector
-												options={productDetails.options.list}
-												title={productDetails.options.text}
+												onChange={changeProductVariant}
+												currentOptions={productDetails.variantOptions}
+												pathPrefix={productDetails.title}
+												options={productDetails.options}
+												variants={productDetails.variants}
 											/>
-											<ProductFeaturesMinified features={productDetails.features} maxItems={4} />
+											<ProductFeaturesMinified
+												features={productDetails.features}
+												maxItems={4}
+											/>
 										</div>
 									</div>
 									<hr />

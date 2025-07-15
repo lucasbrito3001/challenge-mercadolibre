@@ -1,0 +1,38 @@
+name: Run Tests on PR
+
+on:
+    pull_request:
+        branches: [develop, main]
+
+jobs:
+    run-tests:
+        runs-on: ubuntu-latest
+
+        strategy:
+            matrix:
+                node-version: [22]
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Set up Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v4
+              with:
+                  node-version: ${{ matrix.node-version }}
+
+            - name: Install dependencies (frontend)
+              working-directory: ./frontend
+              run: npm ci
+
+            - name: Run frontend tests (Vitest)
+              working-directory: ./frontend
+              run: npm run test:cov
+
+            - name: Install dependencies (backend)
+              working-directory: ./backend
+              run: npm ci
+
+            - name: Run backend tests (Jest)
+              working-directory: ./backend
+              run: npm run test:cov

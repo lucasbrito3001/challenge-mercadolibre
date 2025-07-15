@@ -91,7 +91,7 @@ export default function ProductDetails({ productDetailsService }: ProductDetails
 						{!isDesktop && (
 							<div className="flex flex-col gap-8 p-4">
 								<ProductTitle
-									slug={productSlug}
+									title={productDetails.title}
 									quantitySold={productDetails.quantitySold}
 									rating={productDetails.rating}
 									reviewCount={productDetails.reviewCount}
@@ -123,6 +123,7 @@ export default function ProductDetails({ productDetailsService }: ProductDetails
 								<ProductFeatures features={productDetails.features} />
 								<hr />
 								<StoreInfoCard
+									status={productDetails.store.status}
 									iconUrl={productDetails.store.iconUrl}
 									bannerUrl={productDetails.store.bannerUrl}
 									productsNumber={productDetails.store.productsNumber}
@@ -151,7 +152,7 @@ export default function ProductDetails({ productDetailsService }: ProductDetails
 										</div>
 										<div className="w-1/2 flex flex-col gap-8">
 											<ProductTitle
-												slug={productSlug}
+												title={productDetails.title}
 												quantitySold={productDetails.quantitySold}
 												rating={productDetails.rating}
 												reviewCount={productDetails.reviewCount}
@@ -188,6 +189,7 @@ export default function ProductDetails({ productDetailsService }: ProductDetails
 										storeName={productDetails.store.name}
 									/>
 									<StoreInfoCard
+										status={productDetails.store.status}
 										iconUrl={productDetails.store.iconUrl}
 										bannerUrl={productDetails.store.bannerUrl}
 										productsNumber={productDetails.store.productsNumber}

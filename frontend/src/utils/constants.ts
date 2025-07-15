@@ -19,6 +19,7 @@ export const mockProductDetails: ProductDetails = {
 		isPositiveService: true,
 		isOnTimeDelivery: true,
 		bannerUrl: "https://example.com/store1/banner.png",
+		status: 3,
 	},
 	options: [
 		{

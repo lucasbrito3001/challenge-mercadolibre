@@ -7,6 +7,7 @@ export interface ProductStore {
 	isPositiveService: boolean;
 	isOnTimeDelivery: boolean;
 	bannerUrl: string;
+	status: 1 | 2 | 3 | 4 | 5;
 }
 
 export interface ProductOffer {

@@ -20,7 +20,7 @@
 			"productsNumber": 102,
 			"iconUrl": "http://localhost/images/logo-techzone.png",
 			"bannerUrl": "http://localhost/images/banner-techzone.png",
-			"isPositiveService": true,
+			"isPositiveService": false,
 			"isOnTimeDelivery": true,
 			"status": 3
 		}

@@ -16,7 +16,7 @@ describe("ProductTitle Component", () => {
 		quantitySold: 1234,
 		rating: 4.5,
 		reviewCount: 98,
-		slug: "awesome-product-black-small"
+		title: "mock title"
 	};
 
 	it("renders formatted quantity sold text when over 1000", () => {
@@ -31,6 +31,6 @@ describe("ProductTitle Component", () => {
 
 	it("renders the product title", () => {
 		render(<ProductTitle {...props} />);
-		expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent("awesome product black small");
+		expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent("mock title");
 	});
 });

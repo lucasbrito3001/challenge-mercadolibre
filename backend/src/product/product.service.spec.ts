@@ -226,7 +226,7 @@ describe('ProductService', () => {
                 reviewCount: expectedProduct.reviewCount,
                 sku: expectedProductVariant.sku,
                 slug: expectedProductVariant.slug,
-                title: expectedProduct.name,
+                title: expectedProductVariant.title,
                 imageUrlList: expectedImages.map((image) => image.url),
                 offer: { price: expectedOffer.offerPrice },
                 options: expectedOptionsWithValues.map((option) => ({
@@ -248,6 +248,7 @@ describe('ProductService', () => {
                     isPositiveService: expectedStore.isPositiveService,
                     isOnTimeDelivery: expectedStore.isOnTimeDelivery,
                     bannerUrl: expectedStore.bannerUrl,
+                    status: expectedStore.status
                 },
                 features: expectedFeatures.map((feature) => ({
                     key: feature.key,

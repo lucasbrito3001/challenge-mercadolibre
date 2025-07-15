@@ -13,6 +13,7 @@ interface StoreInfoCardProps {
 	salesNumber: number;
 	isPositiveService: boolean;
 	isOnTimeDelivery: boolean;
+	status: 1 | 2 | 3 | 4 | 5;
 }
 
 export default function StoreInfoCard({
@@ -24,6 +25,7 @@ export default function StoreInfoCard({
 	salesNumber,
 	isPositiveService,
 	isOnTimeDelivery,
+	status
 }: StoreInfoCardProps) {
 	return (
 		<GeneralCard>
@@ -44,6 +46,14 @@ export default function StoreInfoCard({
 				<p className="text-muted text-xs mt-2">
 					<span className="text-black">{productsNumber}</span> Productos{" "}
 				</p>
+			</div>
+
+			<div className="w-full flex gap-1 items-center">
+				<div className={`${ status === 1 ? "opacity-100 h-2" : "opacity-30 h-1" } block w-1/5 bg-red-500`}></div>
+				<div className={`${ status === 2 ? "opacity-100 h-2" : "opacity-30 h-1" } block w-1/5 bg-red-200`}></div>
+				<div className={`${ status === 3 ? "opacity-100 h-2" : "opacity-30 h-1" } block w-1/5 bg-yellow-400`}></div>
+				<div className={`${ status === 4 ? "opacity-100 h-2" : "opacity-30 h-1" } block w-1/5 bg-green-200`}></div>
+				<div className={`${ status === 5 ? "opacity-100 h-2" : "opacity-30 h-1" } block w-1/5 bg-green-500`}></div>
 			</div>
 
 			<div className="flex flex-grow items-start">

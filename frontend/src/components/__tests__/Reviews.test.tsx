@@ -77,8 +77,5 @@ describe("ProductReview Component", () => {
 		render(<ProductReview reviews={mockReviewNoPhotos} />);
 
 		expect(screen.queryByAltText(/Foto/)).not.toBeInTheDocument();
-
-		const commentElement = screen.getByText("Producto regular.");
-		const reviewDiv = commentElement.closest("div");
 	});
 });

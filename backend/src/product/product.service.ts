@@ -93,7 +93,7 @@ export class ProductService {
             reviewCount: product.reviewCount,
             sku: variant.sku,
             slug: variant.slug,
-            title: product.name,
+            title: variant.title,
             imageUrlList: imageUrlList,
             offer: offer ? { price: offer.offerPrice } : null,
             options: optionsOutput,
@@ -109,6 +109,7 @@ export class ProductService {
                 isPositiveService: store.isPositiveService,
                 isOnTimeDelivery: store.isOnTimeDelivery,
                 bannerUrl: store.bannerUrl,
+                status: store.status
             },
             reviews: reviewsToOutput
         };

@@ -23,6 +23,7 @@ const mockProductDetails: ProductDetails = {
 		bannerUrl: "http://example.com/banner.png",
 		isPositiveService: true,
 		isOnTimeDelivery: true,
+		status: 4,
 	},
 	features: [{ key: "Cor", value: "Preto" }],
 	options: [{ id: 1, value: "Cor", optionValues: [{ id: 101, value: "Preto", imageUrl: null }] }],
@@ -33,6 +34,7 @@ const mockProductDetails: ProductDetails = {
 	offer: null,
 	variantOptions: [],
 	variants: [],
+	reviews: [],
 };
 
 describe("ProductDetailsService", () => {

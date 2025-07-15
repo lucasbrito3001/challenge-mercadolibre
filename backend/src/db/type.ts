@@ -26,6 +26,7 @@ export class ProductVariant {
     productId: number;
     sku: string;
     slug: string;
+    title: string;
     price: number;
     stock: number;
 }
@@ -52,6 +53,7 @@ export class Store {
     bannerUrl: string;
     isPositiveService: boolean;
     isOnTimeDelivery: boolean;
+    status: 1 | 2 | 3 | 4 | 5;
 }
 
 export enum OfferStatuses {

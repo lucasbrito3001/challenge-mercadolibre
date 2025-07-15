@@ -13,8 +13,4 @@ export class ProductVariantService {
 
         return { id: variant.id, slug: variant.slug };
     }
-
-    // async getByProductId(productId: number): Promise<ProductVariant[]> {
-    //     return await this.variantRepository.getByProductId(productId);
-    // }
 }

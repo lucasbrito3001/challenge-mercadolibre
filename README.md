@@ -68,6 +68,11 @@ O principal motivo da escolha das tecnologias utilizadas, foi o meu domínio sob
 
 ![Arch diagram](./arch-diagram.png)
 
+Decidi colocar um nginx na frente dos serviços, para que atuasse como load balancer e proxy reverso. Como load balancer ele oferece escalabilidade, permitindo a criação de mais workloads e a distribuição da carga entre eles. Como proxy reverso me oferece segurança, onde eu exponho apenas o meu container do nginx e mantenho o destino dos meus serviços internos ocultos.
+
+Colocar a fonte de dados (json) fora dos containers de backend também foi uma decisão visando escalabilidade. Dessa forma, é possível subir quantos containers forem necessários, e todos terão acesso à mesma fonte de dados, preservando a consistência dos dados entre os serviços e o conceito de stateless dos containers.
+
+
 ## Desafios
 
 A parte geral do frontend e backend foram relativamente simples, mas algumas funcionalidades se mostraram desafiadoras. Por exemplo o selecionador de variação de produtos. Quando se tem apenas uma opção de variação é simples, mas quando combinam várias opções, por exemplo cor, armazenamento e memória, já se torna mais complexo. A decisão de qual variação será definida em cada combinação de opções, manipular tudo isso por frontend se mostrou difícil e com esforço alto.

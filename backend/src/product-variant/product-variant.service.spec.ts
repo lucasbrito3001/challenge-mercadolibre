@@ -45,6 +45,7 @@ describe('ProductVariantService', () => {
             productId: 101,
             sku: 'SKU123',
             slug: 'product-variant-slug-1',
+            title: 'mock title',
             price: 100.0,
             stock: 50,
         };

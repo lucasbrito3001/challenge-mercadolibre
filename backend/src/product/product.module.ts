@@ -7,6 +7,7 @@ import { ProductVariantRepository } from 'src/product-variant/product-variant.re
 import { OptionRepository } from 'src/option/option.repository';
 import { StoreRepository } from 'src/store/store.repository';
 import { FeatureRepository } from 'src/feature/feature.repository';
+import { ReviewRepository } from 'src/review/review.repository';
 
 @Module({
     controllers: [ProductController],
@@ -18,6 +19,7 @@ import { FeatureRepository } from 'src/feature/feature.repository';
         OptionRepository,
         StoreRepository,
         FeatureRepository,
+        ReviewRepository
     ],
 })
 export class ProductModule {}

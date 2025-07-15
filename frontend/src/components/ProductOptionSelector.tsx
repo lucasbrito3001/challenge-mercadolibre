@@ -1,7 +1,6 @@
 import type {
 	ProductOption,
 	ProductOptionValue,
-	Variant,
 	VariantOptionDto,
 } from "../types/ProductDetails";
 

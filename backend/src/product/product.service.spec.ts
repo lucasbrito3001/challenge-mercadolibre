@@ -12,6 +12,7 @@ import { FeatureRepository } from 'src/feature/feature.repository';
 import { NotFoundException } from '@nestjs/common';
 import { mockDatabase } from 'src/mock';
 import { ProductVariantOptionValue } from 'src/db/type';
+import { ReviewRepository } from 'src/review/review.repository';
 
 describe('ProductService', () => {
     let service: ProductService;
@@ -21,6 +22,7 @@ describe('ProductService', () => {
     let optionRepository: OptionRepository;
     let storeRepository: StoreRepository;
     let featureRepository: FeatureRepository;
+    let reviewRepository: ReviewRepository;
 
     const mockSlug = mockDatabase.product_variant[0].slug;
     const invalidSlug = 'invalid-product-slug';
@@ -125,6 +127,12 @@ describe('ProductService', () => {
                         getAllByProductId: jest.fn(),
                     },
                 },
+                {
+                    provide: ReviewRepository,
+                    useValue: {
+                        getByVariantId: jest.fn(),
+                    },
+                },
             ],
         }).compile();
 
@@ -137,6 +145,7 @@ describe('ProductService', () => {
         optionRepository = module.get<OptionRepository>(OptionRepository);
         storeRepository = module.get<StoreRepository>(StoreRepository);
         featureRepository = module.get<FeatureRepository>(FeatureRepository);
+        reviewRepository = module.get<ReviewRepository>(ReviewRepository);
 
         jest.clearAllMocks();
     });
@@ -178,6 +187,9 @@ describe('ProductService', () => {
                 featureRepository,
                 'getAllByProductId',
             ).mockResolvedValue(expectedFeatures);
+            jest.spyOn(reviewRepository, 'getByVariantId').mockResolvedValue(
+                [],
+            );
 
             const result = await service.findBySlug(mockSlug);
 
@@ -249,6 +261,7 @@ describe('ProductService', () => {
                     }),
                 ),
                 variants: [],
+                reviews: [],
             });
         });
 
@@ -284,6 +297,9 @@ describe('ProductService', () => {
                 variantRepository,
                 'getVariantsWithOptionsByProductId',
             ).mockResolvedValue([]);
+            jest.spyOn(reviewRepository, 'getByVariantId').mockResolvedValue(
+                [],
+            );
 
             const result = await service.findBySlug(mockSlug);
 

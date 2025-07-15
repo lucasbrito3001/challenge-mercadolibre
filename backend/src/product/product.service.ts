@@ -1,11 +1,19 @@
 import { Injectable } from '@nestjs/common';
 import { ProductRepository } from './product.repository';
 import { ProductVariantRepository } from 'src/product-variant/product-variant.repository';
-import { FeatureOutputDto, OptionsOutputDto, ProductOutputDto, VariantOptionOutputDto, VariantOutputDto } from './dto/get-product.dto';
+import {
+    FeatureOutputDto,
+    OptionsOutputDto,
+    ProductOutputDto,
+    ReviewOutputDto,
+    VariantOptionOutputDto,
+    VariantOutputDto,
+} from './dto/get-product.dto';
 import { OfferRepository } from 'src/offer/offer.repository';
 import { OptionRepository } from 'src/option/option.repository';
 import { StoreRepository } from 'src/store/store.repository';
 import { FeatureRepository } from 'src/feature/feature.repository';
+import { ReviewRepository } from 'src/review/review.repository';
 
 @Injectable()
 export class ProductService {
@@ -16,26 +24,30 @@ export class ProductService {
         private readonly optionRepository: OptionRepository,
         private readonly storeRepository: StoreRepository,
         private readonly featureRepository: FeatureRepository,
+        private readonly reviewRepository: ReviewRepository,
     ) {}
 
     async findBySlug(slug: string): Promise<ProductOutputDto> {
         const variant = await this.variantRepository.getBySlug(slug);
 
-        const [product, images, offer, variantOptions] = await Promise.all([
+        const [product, images, offer, variantOptions, reviews] = await Promise.all([
             await this.productRepository.getById(variant.productId),
             await this.variantRepository.getImages(variant.id),
             await this.offerRepository.getActiveOfferBySlug(variant.id),
             await this.variantRepository.getOptionValues(variant.id),
-        ])
+            await this.reviewRepository.getByVariantId(variant.id),
+        ]);
 
         const [store, options, features, variants] = await Promise.all([
             await this.storeRepository.getById(product.storeId),
             await this.optionRepository.getAllByProductId(product.id),
             await this.featureRepository.getAllByProductId(product.id),
-            await this.variantRepository.getVariantsWithOptionsByProductId(product.id),
-        ])
+            await this.variantRepository.getVariantsWithOptionsByProductId(
+                product.id,
+            ),
+        ]);
 
-        const imageUrlList: string[] = images.map((image) => image.url)
+        const imageUrlList: string[] = images.map((image) => image.url);
         const optionsOutput: OptionsOutputDto[] = options.map((option) => ({
             value: option.value,
             id: option.id,
@@ -45,16 +57,17 @@ export class ProductService {
                 id: optionValue.id,
                 optionId: optionValue.optionId,
             })),
-        }))
+        }));
         const featuresOutput: FeatureOutputDto[] = features.map((feature) => ({
             key: feature.key,
             value: feature.value,
             iconUrl: feature.iconUrl,
-        }))
-        const variantOptionsOutput: VariantOptionOutputDto[] = variantOptions.map((variantOption) => ({
-            optionId: variantOption.optionId,
-            optionValueId: variantOption.optionValueId,
-        }))
+        }));
+        const variantOptionsOutput: VariantOptionOutputDto[] =
+            variantOptions.map((variantOption) => ({
+                optionId: variantOption.optionId,
+                optionValueId: variantOption.optionValueId,
+            }));
         const variantsOutput: VariantOutputDto[] = variants.map((variant) => ({
             id: variant.id,
             slug: variant.slug,
@@ -63,7 +76,13 @@ export class ProductService {
                 optionId: optionValue.optionId,
                 optionValueId: optionValue.optionValueId,
             })),
-        }))
+        }));
+        const reviewsToOutput: ReviewOutputDto[] = reviews.map((review) => ({
+            comment: review.comment,
+            rating: review.rating,
+            photos: review.photos.map((photo) => photo.url),
+        }));
+
 
         return {
             description: product.description,
@@ -91,6 +110,7 @@ export class ProductService {
                 isOnTimeDelivery: store.isOnTimeDelivery,
                 bannerUrl: store.bannerUrl,
             },
+            reviews: reviewsToOutput
         };
     }
 }

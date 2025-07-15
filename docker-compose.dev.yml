@@ -1,19 +1,100 @@
 services:
-    backend:
+    loki:
+        image: grafana/loki:2.9.0
+        container_name: loki
+        ports:
+            - "3100:3100"
+        command: -config.file=/etc/loki/local-config.yml
+        volumes:
+            - ./dependencies/loki-config.yml:/etc/loki/local-config.yml
+        networks:
+            - meli-network
+
+    promtail:
+        image: grafana/promtail:2.9.4
+        container_name: promtail
+        volumes:
+            - /var/log:/var/log
+            - /home/docker/containers:/var/lib/docker/containers:ro
+            - /var/run/docker.sock:/var/run/docker.sock:ro
+            - ./dependencies/promtail-config.yml:/etc/promtail/config.yml
+            - /etc/machine-id:/etc/machine-id:ro
+        command: -config.file=/etc/promtail/config.yml
+        depends_on:
+            - loki
+        networks:
+            - meli-network
+
+    tempo:
+        image: grafana/tempo:2.3.0
+        container_name: tempo
+        ports:
+            - "3200:3200"
+            - "4317:4317"
+            - "4318:4318"
+        command: ["-config.file=/etc/tempo.yml"]
+        volumes:
+            - ./dependencies/tempo-config.yml:/etc/tempo.yml
+            - tempo_data:/tmp/tempo
+        networks:
+            - meli-network
+
+    grafana:
+        image: grafana/grafana:latest
+        container_name: grafana
+        volumes:
+            - grafana_data:/var/lib/grafana
+            - ./dependencies/grafana/provisioning:/etc/grafana/provisioning
+        ports:
+            - 3300:3000
+        depends_on:
+            - loki
+            - tempo
+        networks:
+            - meli-network
+
+    backend1:
         build:
             context: ./backend
             dockerfile: Dockerfile.dev
-        container_name: backend_meli
+        container_name: backend_meli_2
         ports:
-            - "3000:3000"
+            - "3001:3000"
         volumes:
             - ./backend:/app
             - /app/node_modules
+            - ./data/datasource.json:/var/lib/backend_meli/datasource.json
         environment:
             NODE_ENV: development
             TEMPO_URL: "http://tempo:4318"
         command: npm run start:dev
         restart: unless-stopped
+        depends_on:
+            - tempo
+            - promtail
+        networks:
+            - meli-network
+
+    backend2:
+        build:
+            context: ./backend
+            dockerfile: Dockerfile.dev
+        container_name: backend_meli_1
+        ports:
+            - "3002:3000"
+        volumes:
+            - ./backend:/app
+            - /app/node_modules
+            - ./data/datasource.json:/var/lib/backend_meli/datasource.json
+        environment:
+            NODE_ENV: development
+            TEMPO_URL: "http://tempo:4318"
+            VITE_API_URL: "http://localhost/api/v1"
+        command: npm run start:dev
+        restart: unless-stopped
+        depends_on:
+            - tempo
+            - promtail
         networks:
             - meli-network
 
@@ -29,12 +110,31 @@ services:
             - /app/node_modules
         environment:
             NODE_ENV: development
-            VITE_API_URL: http://localhost:3000
+            VITE_API_URL: http://localhost
         command: npm run dev
         restart: unless-stopped
         networks:
             - meli-network
 
+    nginx:
+        image: nginx:latest
+        container_name: nginx
+        ports:
+            - "80:80"
+        volumes:
+            - ./dependencies/nginx.conf:/etc/nginx/nginx.conf
+            - ./frontend/dist:/var/www/frontend.com.br
+        networks:
+            - meli-network
+        depends_on:
+            - backend1
+            - backend2
+            - frontend
+
 networks:
     meli-network:
-        external: true
+        driver: bridge
+
+volumes:
+    grafana_data:
+    tempo_data:

@@ -13,19 +13,17 @@ export function NotFound() {
 					</div>
 				</div>
 
-				<h1 className="text-2xl font-semibold text-gray-800 mb-2">
-					Ops! Produto não encontrado
-				</h1>
+				<h1 className="text-2xl font-semibold text-gray-800 mb-2">Ups, algo salió mal</h1>
 				<p className="text-gray-600 mb-6">
-					Não conseguimos encontrar o produto que você está procurando. Talvez ele tenha
-					sido removido ou nunca existiu.
+					No pudimos encontrar el producto que buscas. Es posible que lo hayan eliminado o
+					que nunca haya existido.
 				</p>
 
 				<button
 					onClick={() => (window.location.href = "/")}
 					className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-semibold px-6 py-2 rounded-lg transition duration-200"
 				>
-					Voltar para a página inicial
+					Regresar a la página de inicio
 				</button>
 			</div>
 		</div>

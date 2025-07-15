@@ -8,6 +8,7 @@ vi.mock("../../hooks/breakpoint", () => ({
 
 import useIsDesktop from "../../hooks/breakpoint";
 import { mockProductDetails } from "../../utils/constants";
+import { MemoryRouter } from "react-router-dom";
 
 const mockProductDetailsService = {
 	getById: vi.fn(),
@@ -23,7 +24,11 @@ describe("ProductDetails Component", () => {
 
 		mockProductDetailsService.getById.mockResolvedValueOnce(mockProductDetails);
 
-		render(<ProductDetails productDetailsService={mockProductDetailsService} />);
+		render(
+			<MemoryRouter>
+				<ProductDetails productDetailsService={mockProductDetailsService} />
+			</MemoryRouter>
+		);
 
 		const expectedOrder = [
 			"product-title-component",
@@ -42,20 +47,6 @@ describe("ProductDetails Component", () => {
 			);
 
 			expect(actualOrder).toEqual(expectedOrder);
-		});
-	});
-
-	it("check if not found page is rendered", async () => {
-		(useIsDesktop as ReturnType<typeof vi.fn>).mockReturnValue(false);
-
-		mockProductDetailsService.getById.mockResolvedValueOnce(null);
-
-		render(<ProductDetails productDetailsService={mockProductDetailsService} />);
-
-		await waitFor(() => {
-			const notFoundComponent = screen.queryByTestId("not-found-component");
-
-			expect(notFoundComponent).toBeInTheDocument();
 		});
 	});
 });

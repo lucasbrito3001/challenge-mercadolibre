@@ -76,6 +76,18 @@ export class ProductFeature {
     iconUrl: string | null;
 }
 
+export class Review {
+    id: number;
+    variantId: number;
+    comment: string;
+    rating: number;
+}
+
+export class ReviewPhoto {
+    reviewId: number;
+    url: string;
+}
+
 export type Database = {
     store: Store[];
     offer: Offer[];
@@ -86,4 +98,6 @@ export type Database = {
     product_variant: ProductVariant[];
     product_variant_option_value: ProductVariantOptionValue[];
     product_variant_image: ProductVariantImage[];
+    review: Review[];
+    review_photo: ReviewPhoto[];
 };

@@ -10,16 +10,16 @@ export default function Error() {
 					</div>
 				</div>
 
-				<h1 className="text-4xl font-bold text-gray-800 mb-4">Ops, algo deu errado</h1>
+				<h1 className="text-4xl font-bold text-gray-800 mb-4">Ups, algo salió mal</h1>
 				<p className="text-gray-600 mb-6">
-					Houve um erro interno no servidor. Estamos trabalhando para resolver isso o mais
-					rápido possível.
+					Se produjo un error interno del servidor. Estamos trabajando para resolverlo lo
+					antes posible.
 				</p>
 				<a
 					href="/"
 					className="inline-block bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-semibold py-3 px-6 rounded-full transition"
 				>
-					Voltar para a página inicial
+					Regresar a la página de inicio
 				</a>
 			</div>
 		</div>

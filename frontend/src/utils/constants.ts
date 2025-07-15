@@ -110,6 +110,13 @@ export const mockProductDetails: ProductDetails = {
 			],
 		},
 	],
+	reviews: [
+		{
+			comment: "mock-comment",
+			rating: 4,
+			photos: [""],
+		},
+	],
 };
 
 export const creditCardIconsUrl = [

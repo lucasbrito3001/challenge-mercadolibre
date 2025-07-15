@@ -13,8 +13,8 @@ import useIsDesktop from "../hooks/breakpoint";
 import { useEffect, useState } from "react";
 import type { ProductDetails, VariantOptionDto } from "../types/ProductDetails";
 import { productDetailsService } from "../services/productDetailsService";
-import { NotFoundPage } from "../components/NotFound";
 import { useNavigate } from "react-router-dom";
+import ProductReview from "../components/Reviews";
 
 interface ProductDetailsProps {
 	productDetailsService: typeof productDetailsService;
@@ -135,6 +135,8 @@ export default function ProductDetails({ productDetailsService }: ProductDetails
 								<hr />
 								<ProductDescription text={productDetails.description} />
 								<hr />
+								<ProductReview reviews={productDetails.reviews} />
+								<hr />
 								<PaymentMethodsCard />
 							</div>
 						)}
@@ -174,6 +176,8 @@ export default function ProductDetails({ productDetailsService }: ProductDetails
 									<ProductFeatures features={productDetails.features} />
 									<hr />
 									<ProductDescription text={productDetails.description} />
+									<hr />
+									<ProductReview reviews={productDetails.reviews} />
 								</main>
 								<aside className="col-span-3 py-4 pr-4 flex flex-col gap-4">
 									<CheckoutCard
@@ -200,8 +204,6 @@ export default function ProductDetails({ productDetailsService }: ProductDetails
 					</Container>
 				</div>
 			)}
-
-			{!isLoading && !productDetails && <NotFoundPage />}
 		</div>
 	);
 }

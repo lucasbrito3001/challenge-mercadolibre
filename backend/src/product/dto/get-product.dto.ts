@@ -44,6 +44,12 @@ export interface VariantOutputDto {
     optionValues: VariantOptionOutputDto[];
 }
 
+export interface ReviewOutputDto {
+    comment: string;
+    rating: number;
+    photos: string[];
+}
+
 export interface ProductOutputDto {
     slug: string;
     sku: string;
@@ -61,4 +67,5 @@ export interface ProductOutputDto {
     features: FeatureOutputDto[];
     variantOptions: VariantOptionOutputDto[];
     variants: VariantOutputDto[];
+    reviews: ReviewOutputDto[];
 }

@@ -14,7 +14,7 @@ export default function ProductReview({ reviews }: ProductReviewProps) {
 			<h2 className="mb-8 block">Reseñas del producto</h2>
 			<div className="flex flex-col gap-8">
 				{reviews.map((review, index) => (
-					<div>
+					<div key={index}>
 						<div className="mb-2">
 							<StarRating rating={review.rating}></StarRating>
 						</div>

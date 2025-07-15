@@ -33,6 +33,7 @@ const mockProductDetails: ProductDetails = {
 	offer: null,
 	variantOptions: [],
 	variants: [],
+	reviews: [],
 };
 
 describe("ProductDetailsService", () => {

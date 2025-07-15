@@ -27,7 +27,7 @@ Este projeto é uma solução fullstack, composta por um backend em NestJS e um 
 ├── run.md
 └── run.sh
 ```
-Nos diretórios backend e frontend tem o codigo dos serviços, no dependencies todas as dependências externas de observabilidade para funcionamento dos serviços, incluindo Grafana, Loki, Promtail e Tempo e no data o banco json mockado.
+Nos diretórios backend e frontend tem o codigo dos serviços, no dependencies todas as dependências externas de observabilidade para funcionamento dos serviços, incluindo Nginx, Grafana, Loki, Promtail e Tempo e no data o banco json mockado.
 
 ## Arquitetura da solução
 
@@ -46,7 +46,7 @@ O principal motivo da escolha das tecnologias utilizadas, foi o meu domínio sob
 - **Framework:** React + Vite, com TypeScript e TailwindCSS para estilização.
 - **Arquitetura de Componentes:** Componentes funcionais, hooks customizados e separação clara entre páginas, componentes e serviços.
 - **Comunicação com Backend:** Camada de serviço (`productDetailsService`) que consome a API REST do backend via Axios, com tratamento de erros via interceptors.
-- **Roteamento:** React Router para navegação entre páginas (ProductDetails, Error, Auth, NotFound).
+- **Roteamento:** React Router para navegação entre páginas (ProductDetails, Error, Search, NotFound).
 - **Testes:** Estrutura de testes com Vitest e Testing Library.
 
 ### Persistência de dados

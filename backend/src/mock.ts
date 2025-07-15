@@ -10,6 +10,8 @@ export const mockDatabaseEmpty: Database = {
     product_variant: [],
     product_variant_image: [],
     product_variant_option_value: [],
+    review: [],
+    review_photo: [],
 };
 
 export const mockDatabase: Database = {
@@ -370,90 +372,133 @@ export const mockDatabase: Database = {
             iconUrl: null,
         },
     ],
+    review: [
+        {
+            id: 1,
+            variantId: 1,
+            comment:
+                'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita corporis sit exercitationem laboriosam similique modi libero molestias inventore dolor laudantium officia distinctio temporibus, maiores doloremque est hic officiis adipisci optio.',
+            rating: 4,
+        },
+        {
+            id: 2,
+            variantId: 1,
+            comment:
+                'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita corporis sit exercitationem laboriosam similique modi libero molestias inventore dolor laudantium officia distinctio temporibus, maiores doloremque est hic officiis adipisci optio.',
+            rating: 4,
+        },
+        {
+            id: 3,
+            variantId: 1,
+            comment:
+                'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita corporis sit exercitationem laboriosam similique modi libero molestias inventore dolor laudantium officia distinctio temporibus, maiores doloremque est hic officiis adipisci optio.',
+            rating: 4,
+        },
+    ],
+    review_photo: [
+        {
+            reviewId: 1,
+            url: 'https://m.media-amazon.com/images/I/31jrTen3vUL._AC_SL1000_.jpg',
+        },
+        {
+            reviewId: 1,
+            url: 'https://m.media-amazon.com/images/I/31jrTen3vUL._AC_SL1000_.jpg',
+        },
+        {
+            reviewId: 1,
+            url: 'https://m.media-amazon.com/images/I/31jrTen3vUL._AC_SL1000_.jpg',
+        },
+        {
+            reviewId: 1,
+            url: 'https://m.media-amazon.com/images/I/31jrTen3vUL._AC_SL1000_.jpg',
+        },
+    ],
 };
 
 export const mockProductOutputDto = {
-  "description": "Poderoso e elegante, com câmera tripla.",
-  "price": 1999.99,
-  "quantity": 25,
-  "quantitySold": 3000,
-  "rating": 4.8,
-  "reviewCount": 512,
-  "sku": "X100-BLK-64",
-  "slug": "smartphone-x100-preto-64gb",
-  "title": "Smartphone X100",
-  "imageUrlList": [
-    "https://http2.mlstatic.com/D_NQ_NP_973285-MLA81365234553_122024-O.webp",
-    "https://http2.mlstatic.com/D_NQ_NP_2X_627117-MLA81365484947_122024-F.webp",
-    "https://http2.mlstatic.com/D_NQ_NP_2X_953172-MLA81365446813_122024-F.webp",
-    "https://http2.mlstatic.com/D_NQ_NP_2X_950529-MLA81367015155_122024-F.webp",
-    "https://http2.mlstatic.com/D_NQ_NP_929628-MLA81366753953_122024-O.webp",
-    "https://http2.mlstatic.com/D_NQ_NP_2X_936470-MLA81099163506_122024-F.webp",
-    "https://http2.mlstatic.com/D_NQ_NP_844983-MLA81366753961_122024-O.webp"
-  ],
-  "offer": {
-    "price": 1799.99
-  },
-  "store": {
-    "salesNumber": 10000,
-    "productsNumber": 120,
-    "isOfficial": true,
-    "iconUrl": "https://example.com/store1/icon.png",
-    "name": "TechZone",
-    "isPositiveService": true,
-    "isOnTimeDelivery": true,
-    "bannerUrl": "https://example.com/store1/banner.png"
-  },
-  "options": [
-    {
-      "id": 1,
-      "productId": 1,
-      "value": "Cor",
-      "optionValues": [
+    description: 'Poderoso e elegante, com câmera tripla.',
+    price: 1999.99,
+    quantity: 25,
+    quantitySold: 3000,
+    rating: 4.8,
+    reviewCount: 512,
+    sku: 'X100-BLK-64',
+    slug: 'smartphone-x100-preto-64gb',
+    title: 'Smartphone X100',
+    imageUrlList: [
+        'https://http2.mlstatic.com/D_NQ_NP_973285-MLA81365234553_122024-O.webp',
+        'https://http2.mlstatic.com/D_NQ_NP_2X_627117-MLA81365484947_122024-F.webp',
+        'https://http2.mlstatic.com/D_NQ_NP_2X_953172-MLA81365446813_122024-F.webp',
+        'https://http2.mlstatic.com/D_NQ_NP_2X_950529-MLA81367015155_122024-F.webp',
+        'https://http2.mlstatic.com/D_NQ_NP_929628-MLA81366753953_122024-O.webp',
+        'https://http2.mlstatic.com/D_NQ_NP_2X_936470-MLA81099163506_122024-F.webp',
+        'https://http2.mlstatic.com/D_NQ_NP_844983-MLA81366753961_122024-O.webp',
+    ],
+    offer: {
+        price: 1799.99,
+    },
+    store: {
+        salesNumber: 10000,
+        productsNumber: 120,
+        isOfficial: true,
+        iconUrl: 'https://example.com/store1/icon.png',
+        name: 'TechZone',
+        isPositiveService: true,
+        isOnTimeDelivery: true,
+        bannerUrl: 'https://example.com/store1/banner.png',
+    },
+    options: [
         {
-          "imageUrl": "https://http2.mlstatic.com/D_Q_NP_726160-MLA75549316245_042024-R.webp",
-          "value": "Azul cielo",
-          "id": 1,
-          "optionId": 1
+            id: 1,
+            productId: 1,
+            value: 'Cor',
+            optionValues: [
+                {
+                    imageUrl:
+                        'https://http2.mlstatic.com/D_Q_NP_726160-MLA75549316245_042024-R.webp',
+                    value: 'Azul cielo',
+                    id: 1,
+                    optionId: 1,
+                },
+                {
+                    imageUrl:
+                        'https://http2.mlstatic.com/D_Q_NP_777643-MLA75395342152_042024-R.webp',
+                    value: 'Azul oscuro',
+                    id: 2,
+                    optionId: 1,
+                },
+            ],
         },
         {
-          "imageUrl": "https://http2.mlstatic.com/D_Q_NP_777643-MLA75395342152_042024-R.webp",
-          "value": "Azul oscuro",
-          "id": 2,
-          "optionId": 1
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "productId": 1,
-      "value": "Armazenamento",
-      "optionValues": [
+            id: 2,
+            productId: 1,
+            value: 'Armazenamento',
+            optionValues: [
+                {
+                    imageUrl: null,
+                    value: '64GB',
+                    id: 3,
+                    optionId: 2,
+                },
+                {
+                    imageUrl: null,
+                    value: '128GB',
+                    id: 4,
+                    optionId: 2,
+                },
+            ],
+        },
+    ],
+    features: [
         {
-          "imageUrl": null,
-          "value": "64GB",
-          "id": 3,
-          "optionId": 2
+            key: 'Tela',
+            value: "6.5'' AMOLED",
+            iconUrl: null,
         },
         {
-          "imageUrl": null,
-          "value": "128GB",
-          "id": 4,
-          "optionId": 2
-        }
-      ]
-    }
-  ],
-  "features": [
-    {
-      "key": "Tela",
-      "value": "6.5'' AMOLED",
-      "iconUrl": null
-    },
-    {
-      "key": "Processador",
-      "value": "Octa-core 2.4GHz",
-      "iconUrl": null
-    }
-  ]
-}
+            key: 'Processador',
+            value: 'Octa-core 2.4GHz',
+            iconUrl: null,
+        },
+    ],
+};

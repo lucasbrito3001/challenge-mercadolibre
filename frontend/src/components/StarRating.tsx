@@ -1,6 +1,6 @@
 interface StarRatingProps {
 	rating: number;
-	reviewCount: number;
+	reviewCount?: number;
 	max?: number;
 }
 
@@ -28,7 +28,7 @@ export default function StarRating({ rating, max = 5, reviewCount }: StarRatingP
 	return (
 		<div className="flex gap-1">
 			<span className="text-muted text-sm">{rating}</span> {stars}{" "}
-			<span className="text-muted text-sm">({reviewCount})</span>
+			{reviewCount && <span className="text-muted text-sm">({reviewCount})</span>}
 		</div>
 	);
 }

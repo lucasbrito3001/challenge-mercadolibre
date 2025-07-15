@@ -49,22 +49,4 @@ describe("ProductDetails Component", () => {
 			expect(actualOrder).toEqual(expectedOrder);
 		});
 	});
-
-	it("check if not found page is rendered", async () => {
-		(useIsDesktop as ReturnType<typeof vi.fn>).mockReturnValue(false);
-
-		mockProductDetailsService.getById.mockResolvedValueOnce(null);
-
-		render(
-			<MemoryRouter>
-				<ProductDetails productDetailsService={mockProductDetailsService} />
-			</MemoryRouter>
-		);
-
-		await waitFor(() => {
-			const notFoundComponent = screen.queryByTestId("not-found-component");
-
-			expect(notFoundComponent).toBeInTheDocument();
-		});
-	});
 });

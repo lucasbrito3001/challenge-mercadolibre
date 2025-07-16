@@ -57,13 +57,12 @@ export default function Search() {
 						</button>
 					</form>
 					<datalist id="products">
-						<option value="Notebook-Acer-Aspire5-8GB-256GB" />
-						<option value="Notebook-Acer-Aspire5-12GB-256GB" />
-						<option value="Notebook-Acer-Aspire5-8GB-512GB" />
-						<option value="Notebook-Acer-Aspire5-12GB-512GB" />
-						<option value="iPhone-14-Midnight-128GB" />
+						<option value="Notebook-Acer-Aspire-5-8GB-256GB" />
+						<option value="Notebook-Acer-Aspire-5-12GB-256GB" />
+						<option value="Notebook-Acer-Aspire-5-8GB-512GB" />
+						<option value="Notebook-Acer-Aspire-5-12GB-512GB" />
 						<option value="iPhone-14-Midnight-256GB" />
-						<option value="iPhone-14-Azul-128GB" />
+						<option value="iPhone-14-Midnight-512GB" />
 						<option value="iPhone-14-Azul-256GB" />
 					</datalist>
 				</div>

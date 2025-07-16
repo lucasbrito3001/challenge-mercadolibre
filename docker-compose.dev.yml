@@ -57,12 +57,11 @@ services:
         build:
             context: ./backend
             dockerfile: Dockerfile.dev
-        container_name: backend_meli_2
+        container_name: backend_meli_1
         ports:
             - "3001:3000"
         volumes:
             - ./backend:/app
-            - /app/node_modules
             - ./data/datasource.json:/var/lib/backend_meli/datasource.json
         environment:
             NODE_ENV: development
@@ -79,12 +78,11 @@ services:
         build:
             context: ./backend
             dockerfile: Dockerfile.dev
-        container_name: backend_meli_1
+        container_name: backend_meli_2
         ports:
             - "3002:3000"
         volumes:
             - ./backend:/app
-            - /app/node_modules
             - ./data/datasource.json:/var/lib/backend_meli/datasource.json
         environment:
             NODE_ENV: development

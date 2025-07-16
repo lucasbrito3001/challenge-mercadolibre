@@ -136,8 +136,12 @@ export default function ProductDetails({ productDetailsService }: ProductDetails
 								<hr />
 								<ProductDescription text={productDetails.description} />
 								<hr />
-								<ProductReview reviews={productDetails.reviews} />
-								<hr />
+								{productDetails.reviews && (
+									<>
+										<ProductReview reviews={productDetails.reviews} />
+										<hr />
+									</>
+								)}
 								<PaymentMethodsCard />
 							</div>
 						)}
@@ -177,8 +181,12 @@ export default function ProductDetails({ productDetailsService }: ProductDetails
 									<ProductFeatures features={productDetails.features} />
 									<hr />
 									<ProductDescription text={productDetails.description} />
-									<hr />
-									<ProductReview reviews={productDetails.reviews} />
+									{productDetails.reviews && (
+										<>
+											<hr />
+											<ProductReview reviews={productDetails.reviews} />
+										</>
+									)}
 								</main>
 								<aside className="col-span-3 py-4 pr-4 flex flex-col gap-4">
 									<CheckoutCard

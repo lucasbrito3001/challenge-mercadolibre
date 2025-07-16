@@ -72,13 +72,13 @@
 			"id": 1,
 			"optionId": 1,
 			"value": "Midnight",
-			"imageUrl": "https://m.media-amazon.com/images/I/61cwywLZR-L._AC_SX679_.jpg"
+			"imageUrl": "http://localhost/images/iphone14-midnight-1.png"
 		},
 		{
 			"id": 2,
 			"optionId": 1,
 			"value": "Azul",
-			"imageUrl": "https://m.media-amazon.com/images/I/41+jLq6yJKL._AC_SL1000_.jpg"
+			"imageUrl": "http://localhost/images/iphone14-azul-1.png"
 		},
 		{
 			"id": 3,
@@ -252,37 +252,122 @@
 		{
 			"id": 1,
 			"variantId": 1,
-			"url": "https://m.media-amazon.com/images/I/61cwywLZR-L._AC_SX679_.jpg"
+			"url": "http://localhost/images/iphone14-midnight-1.png"
 		},
 		{
 			"id": 2,
-			"variantId": 2,
-			"url": "https://m.media-amazon.com/images/I/61cwywLZR-L._AC_SX679_.jpg"
+			"variantId": 1,
+			"url": "http://localhost/images/iphone14-midnight-2.png"
 		},
 		{
 			"id": 3,
-			"variantId": 3,
-			"url": "https://m.media-amazon.com/images/I/41+jLq6yJKL._AC_SL1000_.jpg"
+			"variantId": 1,
+			"url": "http://localhost/images/iphone14-midnight-3.png"
 		},
 		{
 			"id": 4,
-			"variantId": 4,
-			"url": "https://m.media-amazon.com/images/I/51f+8DD2VbL._AC_SL1000_.jpg"
+			"variantId": 1,
+			"url": "http://localhost/images/iphone14-midnight-4.png"
 		},
 		{
 			"id": 5,
-			"variantId": 5,
-			"url": "https://m.media-amazon.com/images/I/51f+8DD2VbL._AC_SL1000_.jpg"
+			"variantId": 2,
+			"url": "http://localhost/images/iphone14-midnight-1.png"
 		},
 		{
 			"id": 6,
-			"variantId": 6,
-			"url": "https://m.media-amazon.com/images/I/51f+8DD2VbL._AC_SL1000_.jpg"
+			"variantId": 2,
+			"url": "http://localhost/images/iphone14-midnight-2.png"
 		},
 		{
 			"id": 7,
+			"variantId": 2,
+			"url": "http://localhost/images/iphone14-midnight-3.png"
+		},
+		{
+			"id": 8,
+			"variantId": 2,
+			"url": "http://localhost/images/iphone14-midnight-4.png"
+		},
+		{
+			"id": 9,
+			"variantId": 3,
+			"url": "http://localhost/images/iphone14-azul-1.png"
+		},
+		{
+			"id": 10,
+			"variantId": 3,
+			"url": "http://localhost/images/iphone14-azul-2.png"
+		},
+		{
+			"id": 11,
+			"variantId": 3,
+			"url": "http://localhost/images/iphone14-azul-3.png"
+		},
+		{
+			"id": 12,
+			"variantId": 3,
+			"url": "http://localhost/images/iphone14-azul-4.png"
+		},
+		{
+			"id": 13,
+			"variantId": 4,
+			"url": "http://localhost/images/notebook-acer-aspire5-1.png"
+		},
+		{
+			"id": 14,
+			"variantId": 4,
+			"url": "http://localhost/images/notebook-acer-aspire5-2.png"
+		},
+		{
+			"id": 15,
+			"variantId": 4,
+			"url": "http://localhost/images/notebook-acer-aspire5-3.png"
+		},
+		{
+			"id": 16,
+			"variantId": 5,
+			"url": "http://localhost/images/notebook-acer-aspire5-1.png"
+		},
+		{
+			"id": 17,
+			"variantId": 5,
+			"url": "http://localhost/images/notebook-acer-aspire5-2.png"
+		},
+		{
+			"id": 18,
+			"variantId": 5,
+			"url": "http://localhost/images/notebook-acer-aspire5-3.png"
+		},
+		{
+			"id": 19,
+			"variantId": 6,
+			"url": "http://localhost/images/notebook-acer-aspire5-1.png"
+		},
+		{
+			"id": 20,
+			"variantId": 6,
+			"url": "http://localhost/images/notebook-acer-aspire5-2.png"
+		},
+		{
+			"id": 21,
+			"variantId": 6,
+			"url": "http://localhost/images/notebook-acer-aspire5-3.png"
+		},
+		{
+			"id": 22,
 			"variantId": 7,
-			"url": "https://m.media-amazon.com/images/I/51f+8DD2VbL._AC_SL1000_.jpg"
+			"url": "http://localhost/images/notebook-acer-aspire5-1.png"
+		},
+		{
+			"id": 23,
+			"variantId": 7,
+			"url": "http://localhost/images/notebook-acer-aspire5-2.png"
+		},
+		{
+			"id": 24,
+			"variantId": 7,
+			"url": "http://localhost/images/notebook-acer-aspire5-3.png"
 		}
 	],
 	"offer": [
@@ -324,7 +409,7 @@
 			"productId": 1,
 			"key": "Tela",
 			"value": "6.1'' Super Retina XDR",
-			"iconUrl": null
+			"iconUrl": "https://img.icons8.com/?size=100&id=lEtoEemAWMpk&format=png&color=000000"
 		},
 		{
 			"productId": 1,
@@ -374,11 +459,11 @@
 	"review_photo": [
 		{
 			"reviewId": 1,
-			"url": "https://m.media-amazon.com/images/I/61cwywLZR-L._AC_SX679_.jpg"
+			"url": "http://localhost/images/iphone14-midnight-1.png"
 		},
 		{
 			"reviewId": 2,
-			"url": "https://m.media-amazon.com/images/I/41+jLq6yJKL._AC_SL1000_.jpg"
+			"url": "http://localhost/images/iphone14-azul-1.png"
 		}
 	]
 }

@@ -13,7 +13,7 @@ interface StoreInfoCardProps {
 	salesNumber: number;
 	isPositiveService: boolean;
 	isOnTimeDelivery: boolean;
-	status: 1 | 2 | 3 | 4 | 5;
+	status: number;
 }
 
 export default function StoreInfoCard({

@@ -17,7 +17,7 @@ export default function ProductFeatures({ features }: ProductFeaturesProps) {
 		return featuresWithIcons.map((feature, idx) => (
 			<li key={idx} className="text-sm md:text-xs flex items-center gap-2 col-span-2 md:col-span-1">
 				<span className="bg-gray-100 rounded-full">
-					<img src={feature.iconUrl || ""} />
+					<img src={feature.iconUrl || ""} className="w-[36px] h-[36px] p-2 object-contain"/>
 				</span>{" "}
 				{feature.key && `${feature.key}: `} <b>{feature.value}</b>
 			</li>

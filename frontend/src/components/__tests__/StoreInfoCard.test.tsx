@@ -12,6 +12,7 @@ describe("StoreInfoCard Component", () => {
 		salesNumber: 12000,
 		isPositiveService: true,
 		isOnTimeDelivery: true,
+		status: 1,
 	};
 
 	it("renders the store name", () => {
